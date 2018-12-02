@@ -8,23 +8,38 @@
 
 import UIKit
 import ChameleonFramework
+import SVProgressHUD
 
 class SearchController: UITableViewController, UISearchBarDelegate {
 
     @IBOutlet weak var searchBar: UISearchBar!
     var display:[Cryptocurrency] = Cryptocurrency.list
+    var cryptoComp: CryptoCompare = CryptoCompare()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         
         searchBar.delegate = self
         self.tableView.rowHeight = 50
         tableView.tableFooterView = UIView()
         tableView.separatorStyle = .singleLine
         tableView.backgroundColor = UIColor.flatBlue()
+        
+        print("In Search")
+        if Cryptocurrency.list.isEmpty {
+            SVProgressHUD.show()
+            
+            cryptoComp.downloadCryptos {
+                self.loadImages()
+                self.cryptoComp.downloadPrices(completion: {
+                    
+                    SVProgressHUD.dismiss()
+                    self.display = Cryptocurrency.list
+                    self.tableView.reloadData()
+                })
+            }
+        }
     }
-
     
     //MARK: table methods
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -58,6 +73,34 @@ class SearchController: UITableViewController, UISearchBarDelegate {
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
+    }
+    
+    func loadImages(){
+        
+        if let imagesData = DBMS.getImages() {
+            
+            print("Loading images")
+            var notFound = 0
+            for i in 0..<imagesData.count {
+                
+                let result = binarySearch(crypto: Cryptocurrency.list,
+                                          start: 0,
+                                          end: Cryptocurrency.list.count,
+                                          key: imagesData[i].id!)
+                if result != -1 {
+                    Cryptocurrency.list[result].imageData = imagesData[i]
+                } else {
+                    notFound += 1
+                }
+            }
+            
+            print("not found \(notFound)")
+        } else {
+            print("Data do not exist")
+            return
+        }
+        
+        Cryptocurrency.list =  Cryptocurrency.list.filter{ $0.imageData !=  nil }
     }
     
 

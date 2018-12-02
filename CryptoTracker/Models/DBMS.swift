@@ -12,6 +12,7 @@ import CoreData
 
 class DBMS {
    static let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+   static var images: [ImageData]? = getImages()
     
     static func saveData(){
         do {
@@ -34,7 +35,7 @@ class DBMS {
     
     
     static func exist()->Bool{
-        return   DBMS.getImg(for: Cryptocurrency.list[0].symbol) != nil
+       return images != nil ? images!.count != 0: false
     }
     
     
@@ -60,13 +61,14 @@ class DBMS {
           let request: NSFetchRequest<ImageData> = ImageData.fetchRequest()
           request.sortDescriptors = [NSSortDescriptor(key: "id", ascending: true)]
         
-        var temp = [ImageData]()
         do {
+            var temp = [ImageData]()
             temp = try context.fetch(request)
+            return temp
         }catch {
             print("Error getting available cryptocurrencies \(error)")
         }
         
-        return temp
+        return nil
     }
 }

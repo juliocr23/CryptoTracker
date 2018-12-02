@@ -13,22 +13,31 @@ import UIKit
  otherwise-> show Launch screen.
  */
 
-class ViewController: UIViewController {
+class LaunchController: UIViewController {
+    
     var cryptoComp = CryptoCompare()
     var numberOfRequestProcessed:Float = 0.0
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var progressBar: UIProgressView!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
        
         cryptoComp.downloadCryptos {
-            if DBMS.exist() {
-                self.loadImages()
-                self.cryptoComp.downloadPrices(completion: {
-                     self.performSegue(withIdentifier: "goToTabBarController", sender: self)
+            
+            self.cryptoComp.downloadPrices(completion: {
+                self.downloadImages()
+                self.cryptoComp.imagesTaskCompleted(completion: {
+                    self.performSegue(withIdentifier: "goToTabBarController", sender: self)
                 })
+            })
+            
+            
+            /*if DBMS.exist() {
+             self.loadImages()
+             self.cryptoComp.downloadPrices(completion: {
+             self.performSegue(withIdentifier: "goToTabBarController", sender: self)
+             })
             } else{
                 self.cryptoComp.downloadPrices(completion: {
                     self.downloadImages()
@@ -36,10 +45,9 @@ class ViewController: UIViewController {
                         self.performSegue(withIdentifier: "goToTabBarController", sender: self)
                     })
                 })
-            }
+            }*/
         }
     }
-    
     
     //MARK: Images
     //------------------------------------------------------------------------------//
@@ -47,34 +55,6 @@ class ViewController: UIViewController {
         self.cryptoComp.downloadImages(completion: {
             self.updateProgressBar()
         })
-    }
-    
-    func loadImages(){
-        
-        if let imagesData = DBMS.getImages() {
-            
-            print("Loading images")
-            var notFound = 0
-            for i in 0..<imagesData.count {
-                
-                let result = binarySearch(crypto: Cryptocurrency.list,
-                                          start: 0,
-                                          end: Cryptocurrency.list.count,
-                                          key: imagesData[i].id!)
-                if result != -1 {
-                    Cryptocurrency.list[result].imageData = imagesData[i]
-                } else {
-                    notFound += 1
-                }
-            }
-            
-            print("not found \(notFound)")
-        } else {
-            print("Data do not exist")
-            return
-        }
-        
-        Cryptocurrency.list =  Cryptocurrency.list.filter{ $0.imageData !=  nil }
     }
     
     func updateProgressBar(){
