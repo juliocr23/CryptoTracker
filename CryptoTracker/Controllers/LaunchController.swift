@@ -8,11 +8,6 @@
 
 import UIKit
 
-/*
- ->If database is created do not show launch screen?
- otherwise-> show Launch screen.
- */
-
 class LaunchController: UIViewController {
     
     var cryptoComp = CryptoCompare()
@@ -31,21 +26,6 @@ class LaunchController: UIViewController {
                     self.performSegue(withIdentifier: "goToTabBarController", sender: self)
                 })
             })
-            
-            
-            /*if DBMS.exist() {
-             self.loadImages()
-             self.cryptoComp.downloadPrices(completion: {
-             self.performSegue(withIdentifier: "goToTabBarController", sender: self)
-             })
-            } else{
-                self.cryptoComp.downloadPrices(completion: {
-                    self.downloadImages()
-                      self.cryptoComp.imagesTaskCompleted(completion: {
-                        self.performSegue(withIdentifier: "goToTabBarController", sender: self)
-                    })
-                })
-            }*/
         }
     }
     

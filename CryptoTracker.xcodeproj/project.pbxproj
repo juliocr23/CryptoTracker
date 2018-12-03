@@ -19,6 +19,8 @@
 		772191CF21B187310044A07D /* Price.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772191CE21B187310044A07D /* Price.swift */; };
 		772191D121B187470044A07D /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772191D021B187470044A07D /* Utilities.swift */; };
 		772191D521B19C840044A07D /* DBMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772191D421B19C840044A07D /* DBMS.swift */; };
+		773AC3A821B4C21300862C99 /* Graph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773AC3A721B4C21300862C99 /* Graph.swift */; };
+		773AC3AA21B4C24400862C99 /* HistoricalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773AC3A921B4C24400862C99 /* HistoricalData.swift */; };
 		77A6F08721B1D79200662D3E /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A6F08621B1D79100662D3E /* SearchCell.swift */; };
 		77A6F08921B1D7B800662D3E /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A6F08821B1D7B800662D3E /* SearchController.swift */; };
 /* End PBXBuildFile section */
@@ -38,6 +40,8 @@
 		772191CE21B187310044A07D /* Price.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Price.swift; sourceTree = "<group>"; };
 		772191D021B187470044A07D /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		772191D421B19C840044A07D /* DBMS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBMS.swift; sourceTree = "<group>"; };
+		773AC3A721B4C21300862C99 /* Graph.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Graph.swift; sourceTree = "<group>"; };
+		773AC3A921B4C24400862C99 /* HistoricalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricalData.swift; sourceTree = "<group>"; };
 		77A6F08621B1D79100662D3E /* SearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
 		77A6F08821B1D7B800662D3E /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
 		A4262D45DF9A1ED863674C53 /* Pods-CryptoTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptoTracker.release.xcconfig"; path = "Pods/Target Support Files/Pods-CryptoTracker/Pods-CryptoTracker.release.xcconfig"; sourceTree = "<group>"; };
@@ -90,12 +94,14 @@
 		772191C721B171790044A07D /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				773AC3A721B4C21300862C99 /* Graph.swift */,
 				77A6F08621B1D79100662D3E /* SearchCell.swift */,
 				772191D421B19C840044A07D /* DBMS.swift */,
 				772191D021B187470044A07D /* Utilities.swift */,
 				772191CA21B186DE0044A07D /* CryptoCompare.swift */,
 				772191CC21B187150044A07D /* Cryptocurrency.swift */,
 				772191CE21B187310044A07D /* Price.swift */,
+				773AC3A921B4C24400862C99 /* HistoricalData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -265,6 +271,8 @@
 				772191D521B19C840044A07D /* DBMS.swift in Sources */,
 				77A6F08721B1D79200662D3E /* SearchCell.swift in Sources */,
 				772191CD21B187150044A07D /* Cryptocurrency.swift in Sources */,
+				773AC3AA21B4C24400862C99 /* HistoricalData.swift in Sources */,
+				773AC3A821B4C21300862C99 /* Graph.swift in Sources */,
 				772191CB21B186DE0044A07D /* CryptoCompare.swift in Sources */,
 				772191B321B171650044A07D /* AppDelegate.swift in Sources */,
 				772191CF21B187310044A07D /* Price.swift in Sources */,

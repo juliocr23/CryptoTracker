@@ -14,16 +14,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
        
         
         let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         var  temp: UIViewController?
         if DBMS.exist() {
-             temp  = mainStoryboard.instantiateViewController(withIdentifier: "TabBar") 
+             temp  = mainStoryboard.instantiateViewController(withIdentifier: "TabBar")
         }else {
-            temp  = mainStoryboard.instantiateViewController(withIdentifier: "setUpApp") as! LaunchController
+            temp  = mainStoryboard.instantiateViewController(withIdentifier: "setUpApp") as!  LaunchController
             
         }
         

@@ -113,5 +113,4 @@ class SearchController: UITableViewController, UISearchBarDelegate {
         // Pass the selected object to the new view controller.
     }
     */
-
 }
