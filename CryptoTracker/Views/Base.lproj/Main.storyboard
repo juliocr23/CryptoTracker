@@ -154,7 +154,6 @@
                                     <outlet property="nameLabel" destination="F2S-mJ-db0" id="Tt7-de-HyJ"/>
                                     <outlet property="priceLabel" destination="EKP-YM-9lz" id="abk-H6-3JD"/>
                                     <outlet property="symbolLabel" destination="WKp-MV-WA4" id="1As-eZ-Ylq"/>
-                                    <segue destination="VxJ-8M-mGs" kind="show" id="4JY-55-f1h"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -166,6 +165,7 @@
                     <navigationItem key="navigationItem" title="Assets" id="YqK-Hp-sFP"/>
                     <connections>
                         <outlet property="searchBar" destination="KKZ-dQ-VKu" id="b0e-RM-tjZ"/>
+                        <segue destination="VxJ-8M-mGs" kind="show" identifier="goToDetails" id="h26-la-84u"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rZA-in-8P1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -213,10 +213,10 @@
             </objects>
             <point key="canvasLocation" x="-1383" y="645"/>
         </scene>
-        <!--View Controller-->
+        <!--Detail Controller-->
         <scene sceneID="rd5-3Z-fcB">
             <objects>
-                <viewController id="VxJ-8M-mGs" sceneMemberID="viewController">
+                <viewController id="VxJ-8M-mGs" customClass="DetailController" customModule="CryptoTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleAspectFill" id="r7C-NY-H2K">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -444,6 +444,18 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="V4V-2W-Q7b"/>
                     </view>
+                    <connections>
+                        <outlet property="highDay" destination="CeA-dm-57V" id="bPr-WS-08c"/>
+                        <outlet property="icon" destination="nvY-lf-Bfu" id="COf-L5-kDn"/>
+                        <outlet property="lowDay" destination="kTk-IO-dRU" id="LxH-Si-6CR"/>
+                        <outlet property="marketCap" destination="iIc-Zx-0uk" id="qA3-LG-YDC"/>
+                        <outlet property="name" destination="jl2-OO-DQA" id="Jpe-Y6-7lg"/>
+                        <outlet property="percentageChange" destination="NB3-kc-RMM" id="CbW-M7-nEr"/>
+                        <outlet property="price" destination="lwV-OS-TRw" id="pJj-UT-VMB"/>
+                        <outlet property="supply" destination="u1X-y3-4bg" id="Ezb-EF-AwY"/>
+                        <outlet property="symbol" destination="je2-Gx-rxS" id="RDc-uQ-e4l"/>
+                        <outlet property="volume" destination="kDd-JX-MOm" id="1R8-Yc-m4o"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="POE-V5-U5z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

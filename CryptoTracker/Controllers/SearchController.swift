@@ -12,11 +12,13 @@ import SVProgressHUD
 import Alamofire
 import SwiftyJSON
 
+
 class SearchController: UITableViewController, UISearchBarDelegate {
 
     @IBOutlet weak var searchBar: UISearchBar!
     var display:[Cryptocurrency] = Cryptocurrency.list
     var cryptoComp: CryptoCompare = CryptoCompare()
+    var selectedIndex = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,6 +46,13 @@ class SearchController: UITableViewController, UISearchBarDelegate {
     }
     
     //MARK: table methods
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedIndex =  indexPath.row
+        performSegue(withIdentifier: "goToDetails", sender: self)
+    }
+    
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return display.count
     }
@@ -106,13 +115,16 @@ class SearchController: UITableViewController, UISearchBarDelegate {
     }
     
 
-    /*
+    
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+ 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        
+        if segue.identifier == "goToDetails" {
+           let destinationVC = segue.destination as! DetailController
+            destinationVC.crypto = display[selectedIndex]
+        }
     }
-    */
+    
 }
