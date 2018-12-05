@@ -9,6 +9,8 @@
 import UIKit
 import ChameleonFramework
 import SVProgressHUD
+import Alamofire
+import SwiftyJSON
 
 class SearchController: UITableViewController, UISearchBarDelegate {
 
