@@ -256,7 +256,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="999999999999" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lwV-OS-TRw">
                                         <rect key="frame" x="0.0" y="0.0" width="130" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(1.04%) this hour" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NB3-kc-RMM">
@@ -282,14 +282,14 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99999 BTC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iIc-Zx-0uk">
                                                 <rect key="frame" x="0.0" y="20.5" width="89.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rfg-VW-AVh" customClass="CandleStickChartView" customModule="Charts">
                                         <rect key="frame" x="0.0" y="51" width="360" height="210"/>
-                                        <color key="backgroundColor" red="0.96341254529999998" green="0.72294721490000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="210" id="MJS-uo-0Qb"/>
                                             <constraint firstAttribute="width" constant="360" id="zes-mE-iqL"/>
@@ -300,45 +300,58 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kYL-J0-lgz">
                                                 <rect key="frame" x="0.0" y="0.0" width="51.5" height="30"/>
-                                                <color key="backgroundColor" red="0.53333333333333333" green="0.59607843137254901" blue="0.81568627450980391" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" red="0.53333333329999999" green="0.59607843140000005" blue="0.81568627449999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" title="1H">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="show1Hr:" destination="VxJ-8M-mGs" eventType="touchUpInside" id="TbK-lH-sSB"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uxh-Vl-Asq">
                                                 <rect key="frame" x="61.5" y="0.0" width="52" height="30"/>
-                                                <color key="backgroundColor" red="0.53333333329999999" green="0.59607843140000005" blue="0.81568627449999997" alpha="1" colorSpace="calibratedRGB"/>
                                                 <state key="normal" title="1D">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="show1Day:" destination="VxJ-8M-mGs" eventType="touchUpInside" id="o46-MP-pnw"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="saU-eo-Ngn">
                                                 <rect key="frame" x="123.5" y="0.0" width="51.5" height="30"/>
-                                                <color key="backgroundColor" red="0.53333333329999999" green="0.59607843140000005" blue="0.81568627449999997" alpha="1" colorSpace="calibratedRGB"/>
                                                 <state key="normal" title="1W">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="show1Week:" destination="VxJ-8M-mGs" eventType="touchUpInside" id="h6v-ek-e0U"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wdh-bb-mdT">
                                                 <rect key="frame" x="185" y="0.0" width="51.5" height="30"/>
-                                                <color key="backgroundColor" red="0.53333333329999999" green="0.59607843140000005" blue="0.81568627449999997" alpha="1" colorSpace="calibratedRGB"/>
                                                 <state key="normal" title="1M">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="show1Month:" destination="VxJ-8M-mGs" eventType="touchUpInside" id="3WZ-OH-kRU"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bE9-al-tVb">
                                                 <rect key="frame" x="246.5" y="0.0" width="52" height="30"/>
-                                                <color key="backgroundColor" red="0.53333333329999999" green="0.59607843140000005" blue="0.81568627449999997" alpha="1" colorSpace="calibratedRGB"/>
                                                 <state key="normal" title="1Y">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="show1Year:" destination="VxJ-8M-mGs" eventType="touchUpInside" id="DrT-bd-4v9"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uIR-CR-y8M">
                                                 <rect key="frame" x="308.5" y="0.0" width="51.5" height="30"/>
-                                                <color key="backgroundColor" red="0.53333333329999999" green="0.59607843140000005" blue="0.81568627449999997" alpha="1" colorSpace="calibratedRGB"/>
                                                 <state key="normal" title="All">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="showAll:" destination="VxJ-8M-mGs" eventType="touchUpInside" id="8KW-Rg-xw3"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -360,7 +373,7 @@
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="999999999 BTC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u1X-y3-4bg">
                                                                 <rect key="frame" x="0.0" y="28.5" width="139.5" height="20.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                <nil key="textColor"/>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                         </subviews>
@@ -377,7 +390,7 @@
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9999999BTC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kDd-JX-MOm">
                                                                 <rect key="frame" x="0.0" y="28.5" width="106.5" height="20.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                <nil key="textColor"/>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                         </subviews>
@@ -399,7 +412,7 @@
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9999999" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CeA-dm-57V">
                                                                 <rect key="frame" x="0.0" y="24.5" width="73.5" height="24.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                <nil key="textColor"/>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                         </subviews>
@@ -416,7 +429,7 @@
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9999999" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hee-L9-owP">
                                                                 <rect key="frame" x="0.0" y="24.5" width="73.5" height="24.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                <nil key="textColor"/>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                         </subviews>
@@ -433,7 +446,7 @@
                                 </constraints>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.25098039215686274" green="0.30588235294117649" blue="0.58431372549019611" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="mNb-Dy-Ztz" firstAttribute="leading" secondItem="V4V-2W-Q7b" secondAttribute="leading" constant="8" id="3OR-hF-lh7"/>
                             <constraint firstItem="fCn-i2-sab" firstAttribute="centerY" secondItem="r7C-NY-H2K" secondAttribute="centerY" constant="20" id="5PU-Ck-L86"/>
@@ -445,9 +458,10 @@
                         <viewLayoutGuide key="safeArea" id="V4V-2W-Q7b"/>
                     </view>
                     <connections>
+                        <outlet property="graphView" destination="Rfg-VW-AVh" id="6he-kF-EAd"/>
                         <outlet property="highDay" destination="CeA-dm-57V" id="bPr-WS-08c"/>
                         <outlet property="icon" destination="nvY-lf-Bfu" id="COf-L5-kDn"/>
-                        <outlet property="lowDay" destination="kTk-IO-dRU" id="LxH-Si-6CR"/>
+                        <outlet property="lowDay" destination="hee-L9-owP" id="4s8-ZG-qjX"/>
                         <outlet property="marketCap" destination="iIc-Zx-0uk" id="qA3-LG-YDC"/>
                         <outlet property="name" destination="jl2-OO-DQA" id="Jpe-Y6-7lg"/>
                         <outlet property="percentageChange" destination="NB3-kc-RMM" id="CbW-M7-nEr"/>
@@ -455,6 +469,12 @@
                         <outlet property="supply" destination="u1X-y3-4bg" id="Ezb-EF-AwY"/>
                         <outlet property="symbol" destination="je2-Gx-rxS" id="RDc-uQ-e4l"/>
                         <outlet property="volume" destination="kDd-JX-MOm" id="1R8-Yc-m4o"/>
+                        <outletCollection property="graphButtons" destination="kYL-J0-lgz" collectionClass="NSMutableArray" id="sd5-SM-D6f"/>
+                        <outletCollection property="graphButtons" destination="uxh-Vl-Asq" collectionClass="NSMutableArray" id="jfy-EX-rFu"/>
+                        <outletCollection property="graphButtons" destination="saU-eo-Ngn" collectionClass="NSMutableArray" id="O7v-IP-0rQ"/>
+                        <outletCollection property="graphButtons" destination="Wdh-bb-mdT" collectionClass="NSMutableArray" id="Sl1-MZ-H22"/>
+                        <outletCollection property="graphButtons" destination="bE9-al-tVb" collectionClass="NSMutableArray" id="afy-UO-cDT"/>
+                        <outletCollection property="graphButtons" destination="uIR-CR-y8M" collectionClass="NSMutableArray" id="1z6-g1-LUm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="POE-V5-U5z" userLabel="First Responder" sceneMemberID="firstResponder"/>
