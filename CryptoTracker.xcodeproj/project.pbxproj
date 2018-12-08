@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		1B5820AFCD0A1F3E582C6AB4 /* Pods_CryptoTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9DF80753A876CCA87882F4F /* Pods_CryptoTracker.framework */; };
 		772191B321B171650044A07D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772191B221B171650044A07D /* AppDelegate.swift */; };
-		772191B521B171650044A07D /* LaunchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772191B421B171650044A07D /* LaunchController.swift */; };
 		772191B821B171650044A07D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 772191B621B171650044A07D /* Main.storyboard */; };
 		772191BB21B171650044A07D /* CryptoTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 772191B921B171650044A07D /* CryptoTracker.xcdatamodeld */; };
 		772191BD21B171670044A07D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 772191BC21B171670044A07D /* Assets.xcassets */; };
@@ -18,7 +17,6 @@
 		772191CD21B187150044A07D /* Cryptocurrency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772191CC21B187150044A07D /* Cryptocurrency.swift */; };
 		772191CF21B187310044A07D /* Price.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772191CE21B187310044A07D /* Price.swift */; };
 		772191D121B187470044A07D /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772191D021B187470044A07D /* Utilities.swift */; };
-		772191D521B19C840044A07D /* DBMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772191D421B19C840044A07D /* DBMS.swift */; };
 		773AC3A821B4C21300862C99 /* Graph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773AC3A721B4C21300862C99 /* Graph.swift */; };
 		773AC3AA21B4C24400862C99 /* HistoricalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773AC3A921B4C24400862C99 /* HistoricalData.swift */; };
 		773C4B0521B87B2B009D01A3 /* DetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773C4B0421B87B2A009D01A3 /* DetailController.swift */; };
@@ -32,7 +30,6 @@
 		0749E05277FA5FCBF7CD2138 /* Pods-CryptoTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptoTracker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CryptoTracker/Pods-CryptoTracker.debug.xcconfig"; sourceTree = "<group>"; };
 		772191AF21B171650044A07D /* CryptoTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CryptoTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		772191B221B171650044A07D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		772191B421B171650044A07D /* LaunchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchController.swift; sourceTree = "<group>"; };
 		772191B721B171650044A07D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		772191BA21B171650044A07D /* CryptoTracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CryptoTracker.xcdatamodel; sourceTree = "<group>"; };
 		772191BC21B171670044A07D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -42,7 +39,6 @@
 		772191CC21B187150044A07D /* Cryptocurrency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cryptocurrency.swift; sourceTree = "<group>"; };
 		772191CE21B187310044A07D /* Price.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Price.swift; sourceTree = "<group>"; };
 		772191D021B187470044A07D /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
-		772191D421B19C840044A07D /* DBMS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBMS.swift; sourceTree = "<group>"; };
 		773AC3A721B4C21300862C99 /* Graph.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Graph.swift; sourceTree = "<group>"; };
 		773AC3A921B4C24400862C99 /* HistoricalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricalData.swift; sourceTree = "<group>"; };
 		773C4B0421B87B2A009D01A3 /* DetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailController.swift; sourceTree = "<group>"; };
@@ -103,7 +99,6 @@
 			children = (
 				773AC3A721B4C21300862C99 /* Graph.swift */,
 				77A6F08621B1D79100662D3E /* SearchCell.swift */,
-				772191D421B19C840044A07D /* DBMS.swift */,
 				772191D021B187470044A07D /* Utilities.swift */,
 				772191CA21B186DE0044A07D /* CryptoCompare.swift */,
 				772191CC21B187150044A07D /* Cryptocurrency.swift */,
@@ -117,7 +112,6 @@
 		772191C821B171900044A07D /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				772191B421B171650044A07D /* LaunchController.swift */,
 				772191B221B171650044A07D /* AppDelegate.swift */,
 				77A6F08821B1D7B800662D3E /* SearchController.swift */,
 				773C4B0421B87B2A009D01A3 /* DetailController.swift */,
@@ -274,12 +268,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				772191B521B171650044A07D /* LaunchController.swift in Sources */,
 				772191BB21B171650044A07D /* CryptoTracker.xcdatamodeld in Sources */,
 				77DBC21921BB455A00005B8A /* Icon.swift in Sources */,
 				772191D121B187470044A07D /* Utilities.swift in Sources */,
 				77A6F08921B1D7B800662D3E /* SearchController.swift in Sources */,
-				772191D521B19C840044A07D /* DBMS.swift in Sources */,
 				77A6F08721B1D79200662D3E /* SearchCell.swift in Sources */,
 				772191CD21B187150044A07D /* Cryptocurrency.swift in Sources */,
 				773AC3AA21B4C24400862C99 /* HistoricalData.swift in Sources */,

@@ -29,53 +29,13 @@ class SearchController: UITableViewController, UISearchBarDelegate {
         tableView.separatorStyle = .singleLine
         tableView.backgroundColor = UIColor.flatBlue()
         
-        print("In Search")
-        
         loadImages()
+        SVProgressHUD.show()
         self.cryptoComp.downloadPrices(completion: {
             SVProgressHUD.dismiss()
             self.display = Cryptocurrency.list
             self.tableView.reloadData()
         })
-        
-        
-       // loadImages()
-        /*if Cryptocurrency.list.isEmpty {
-            SVProgressHUD.show()
-            
-            cryptoComp.downloadCryptos {
-                self.loadImages()
-                self.cryptoComp.downloadPrices(completion: {
-                    
-                    SVProgressHUD.dismiss()
-                    self.display = Cryptocurrency.list
-                    self.tableView.reloadData()
-                })
-            }
-        }*/
-
-       /*cryptoComp.downloadCryptos {
-             self.loadImages()
-            var icons = [Icon]()
-            for value in Cryptocurrency.list {
-                let icon = Icon()
-                icon.data = value.imageData.data
-                icon.name = value.name
-                icon.id   =  value.id
-                icon.symbol = value.symbol
-                icons.append(icon)
-            }
-            
-            do {
-               let jsonData = try JSONEncoder().encode(icons)
-               let url:URL = URL(fileURLWithPath: "/Users/juliorosario/Desktop/images.json")
-               try jsonData.write(to: url )
-            }catch {
-                print("Error saving data")
-            }
-            print("Done writing data!")
-        }*/
-       // loadImages()
     }
     
     func loadImages(){
@@ -99,7 +59,6 @@ class SearchController: UITableViewController, UISearchBarDelegate {
     }
     
     //MARK: table methods
-    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedIndex =  indexPath.row
         performSegue(withIdentifier: "goToDetails", sender: self)
@@ -138,37 +97,7 @@ class SearchController: UITableViewController, UISearchBarDelegate {
             self.tableView.reloadData()
         }
     }
-    
-    /*func loadImages(){
-        
-        if let imagesData = DBMS.getImages() {
-            
-            print("Loading images")
-            var notFound = 0
-            for i in 0..<imagesData.count {
-                
-                let result = binarySearch(crypto: Cryptocurrency.list,
-                                          start: 0,
-                                          end: Cryptocurrency.list.count,
-                                          key: imagesData[i].id!)
-                if result != -1 {
-                    Cryptocurrency.list[result].imageData = imagesData[i]
-                } else {
-                    notFound += 1
-                }
-            }
-            
-            print("not found \(notFound)")
-        } else {
-            print("Data do not exist")
-            return
-        }
-        
-        Cryptocurrency.list =  Cryptocurrency.list.filter{ $0.imageData !=  nil }
-    }*/
-    
 
-    
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         

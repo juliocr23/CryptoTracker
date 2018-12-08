@@ -13,7 +13,6 @@ import UIKit
 struct Cryptocurrency {
     var favorite: Bool = false
     var imageData: ImageData!
-    var imageUrl: String = ""
     var price:Price!
     var icon: Icon!
     

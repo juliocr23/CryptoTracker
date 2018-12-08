@@ -51,7 +51,6 @@ class CryptoCompare {
             if value.1["IsTrading"].boolValue {
                 
                 var temp  = Cryptocurrency()
-                temp.imageUrl           =  baseUrl +  value.1["ImageUrl"].stringValue
                 temp.icon.name               =  value.1["CoinName"].stringValue
                 temp.icon.symbol             =  value.1["Symbol"].stringValue
                 temp.icon.id                 =  value.1["Id"].stringValue
@@ -152,51 +151,6 @@ class CryptoCompare {
         return price
     }
     
-                                        //MARK: Images
-    //----------------------------------------------------------------------------------------//
-    func downloadImages(list: [Int]? = nil, completion:(()->())?){
-        var i = 0
-        if let list =  list {
-            while i < list.count {
-                processImageDownload(i: list[i], completion: completion)
-                i += 1
-            }
-        } else {
-            let  size = Cryptocurrency.list.count
-            while i < size {
-                processImageDownload(i: i, completion: completion)
-                i += 1
-            }
-        }
-    }
-    
-    func processImageDownload(i: Int,completion:(()->())? ){
-        
-        imageThreadGroup.enter()
-        Alamofire.request(Cryptocurrency.list[i].imageUrl).responseImage { response in
-            
-            //debugPrint(response)
-            let size = CGSize(width: 40.0, height: 40.0)
-            if let image = response.result.value {
-                
-                let imageFilter = AspectScaledToFillSizeCircleFilter(size: size)
-                
-                let imageData = ImageData(context: DBMS.context)
-                imageData.data = imageFilter.filter(image).pngData()
-                imageData.id = Cryptocurrency.list[i].icon.symbol.lowercased()
-                
-                Cryptocurrency.list[i].imageData = imageData
-                completion?()
-            }
-            
-            if response.error != nil {
-                print(response.error.debugDescription)
-            }
-            self.imageCalls += 1
-            self.imageThreadGroup.leave()
-        }
-    }
-    
                                         //MARK: Historical Data
     //-------------------------------------------------------------------------------------------------------------\\
    static func requestHistory(for crypto: String) -> [String: String] {
@@ -232,15 +186,6 @@ class CryptoCompare {
             }
             print("Size of cryptocurrencies \(Cryptocurrency.list.count)")
             completion?()
-        }
-    }
-    
-    func imagesTaskCompleted(completion:(()->())?) {
-        
-        imageThreadGroup.notify(queue: .main) {
-              Cryptocurrency.list = Cryptocurrency.list.filter { $0.imageData != nil }
-              DBMS.saveData()
-              completion?()
         }
     }
 }
