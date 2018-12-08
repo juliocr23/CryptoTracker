@@ -50,8 +50,8 @@ class DetailController: UIViewController {
         showIcon()
         showPercentage()
         
-        name.text = crypto.name
-        symbol.text = crypto.symbol
+        name.text = crypto.icon.name
+        symbol.text = crypto.icon.symbol
         
         percentageChange.text     = "(\(crypto.price.change24H.rounded(places: 2))%) 24H"
         price.text                = "$" + String(crypto.price.price)
@@ -67,7 +67,7 @@ class DetailController: UIViewController {
             icon.image = UIImage(data: data.data!)
             icon.backgroundColor = UIColor.flatBlue()
         }else{
-            print("Image in Detail not found for \(crypto.name)")
+            print("Image in Detail not found for \(crypto.icon.name)")
         }
     }
     
@@ -104,9 +104,9 @@ class DetailController: UIViewController {
     private func getParameters()->[String:String] {
         switch graphIndex {
         case 0,1,2,3,4:
-            return  CryptoCompare.requestHistory(for:crypto.symbol)
+            return  CryptoCompare.requestHistory(for:crypto.icon.symbol)
         default:
-            return  CryptoCompare.requestAllHistory(for:crypto.symbol)
+            return  CryptoCompare.requestAllHistory(for:crypto.icon.symbol)
         }
     }
     

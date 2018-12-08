@@ -11,13 +11,11 @@ import CoreData
 import UIKit
 
 struct Cryptocurrency {
-    var id:String = ""
-    var name:String = ""
-    var symbol:String = ""
     var favorite: Bool = false
     var imageData: ImageData!
     var imageUrl: String = ""
     var price:Price!
+    var icon: Icon!
     
     static var list:[Cryptocurrency] = [Cryptocurrency]()
 }

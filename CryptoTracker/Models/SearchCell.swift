@@ -35,17 +35,17 @@ class SearchCell: UITableViewCell {
     private func setName(for crypto: Cryptocurrency){
         
         var name = ""
-        if crypto.name.count <= 10 {
-            name = crypto.name
+        if crypto.icon.name.count <= 10 {
+            name = crypto.icon.name
         } else {
-            name = crypto.symbol
+            name = crypto.icon.symbol
         }
         nameLabel.text = name
         nameLabel.textColor = UIColor.white
     }
     
     private func setSymbol(for crypto: Cryptocurrency) {
-       symbolLabel.text = crypto.symbol
+       symbolLabel.text = crypto.icon.symbol
        symbolLabel.textColor = UIColor.lightGray
     }
     
@@ -54,7 +54,7 @@ class SearchCell: UITableViewCell {
         if let price = crypto.price {
             priceLabel.text  = "\t$\(price.price)\t"
         }else {
-            print("Price do not exist for \(crypto.name)")
+            print("Price do not exist for \(crypto.icon.name)")
             return
         }
         
@@ -74,10 +74,10 @@ class SearchCell: UITableViewCell {
     
     private func setLogo(for crypto: Cryptocurrency) {
         
-        if let imgData = crypto.imageData  {
+        if let imgData = crypto.icon  {
             logoImg.image = UIImage(data: imgData.data!)
         }else {
-            print("Logo do not exist for \(crypto.name)")
+            print("Logo do not exist for \(crypto.icon.name)")
         }
     }
 }

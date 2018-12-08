@@ -30,7 +30,17 @@ class SearchController: UITableViewController, UISearchBarDelegate {
         tableView.backgroundColor = UIColor.flatBlue()
         
         print("In Search")
-        if Cryptocurrency.list.isEmpty {
+        
+        loadImages()
+        self.cryptoComp.downloadPrices(completion: {
+            SVProgressHUD.dismiss()
+            self.display = Cryptocurrency.list
+            self.tableView.reloadData()
+        })
+        
+        
+       // loadImages()
+        /*if Cryptocurrency.list.isEmpty {
             SVProgressHUD.show()
             
             cryptoComp.downloadCryptos {
@@ -42,6 +52,49 @@ class SearchController: UITableViewController, UISearchBarDelegate {
                     self.tableView.reloadData()
                 })
             }
+        }*/
+
+       /*cryptoComp.downloadCryptos {
+             self.loadImages()
+            var icons = [Icon]()
+            for value in Cryptocurrency.list {
+                let icon = Icon()
+                icon.data = value.imageData.data
+                icon.name = value.name
+                icon.id   =  value.id
+                icon.symbol = value.symbol
+                icons.append(icon)
+            }
+            
+            do {
+               let jsonData = try JSONEncoder().encode(icons)
+               let url:URL = URL(fileURLWithPath: "/Users/juliorosario/Desktop/images.json")
+               try jsonData.write(to: url )
+            }catch {
+                print("Error saving data")
+            }
+            print("Done writing data!")
+        }*/
+       // loadImages()
+    }
+    
+    func loadImages(){
+        do {
+            let url:URL  = Bundle.main.url(forResource: "res/images", withExtension: "json")!
+            let jsonData = try Data(contentsOf: url)
+            
+            let jsonDecoder = JSONDecoder()
+            let  icons      = try jsonDecoder.decode([Icon].self, from: jsonData)
+            
+            for value in icons {
+                var crypto = Cryptocurrency()
+                crypto.icon = value
+                Cryptocurrency.list.append(crypto)
+            }
+          
+        }catch{
+            print("Failed reading data")
+            print(error)
         }
     }
     
@@ -73,11 +126,11 @@ class SearchController: UITableViewController, UISearchBarDelegate {
         else {
             
             //If searchText is equal than set it to display
-            display =  Cryptocurrency.list.filter{($0.name.lowercased() == searchText.lowercased())}
+            display =  Cryptocurrency.list.filter{($0.icon.name.lowercased() == searchText.lowercased())}
             
             //If there are no elements, get elements that cointain searchText
             if display.count <= 0 {
-                display = Cryptocurrency.list.filter { ($0.name.lowercased().contains(searchText.lowercased())) }
+                display = Cryptocurrency.list.filter { ($0.icon.name.lowercased().contains(searchText.lowercased())) }
             }
         }
         
@@ -86,7 +139,7 @@ class SearchController: UITableViewController, UISearchBarDelegate {
         }
     }
     
-    func loadImages(){
+    /*func loadImages(){
         
         if let imagesData = DBMS.getImages() {
             
@@ -112,7 +165,7 @@ class SearchController: UITableViewController, UISearchBarDelegate {
         }
         
         Cryptocurrency.list =  Cryptocurrency.list.filter{ $0.imageData !=  nil }
-    }
+    }*/
     
 
     

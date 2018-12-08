@@ -39,7 +39,7 @@ class CryptoCompare {
             let data  = json["Data"]
             let  url  = json["BaseImageUrl"].stringValue
             self.parseCrypto(json: data, baseUrl:url)
-            Cryptocurrency.list.sort(by:{$0.symbol < $1.symbol})
+            Cryptocurrency.list.sort(by:{$0.icon.symbol < $1.icon.symbol})
             completion?()
         }
     }
@@ -52,9 +52,9 @@ class CryptoCompare {
                 
                 var temp  = Cryptocurrency()
                 temp.imageUrl           =  baseUrl +  value.1["ImageUrl"].stringValue
-                temp.name               =  value.1["CoinName"].stringValue
-                temp.symbol             =  value.1["Symbol"].stringValue
-                temp.id                 =  value.1["Id"].stringValue
+                temp.icon.name               =  value.1["CoinName"].stringValue
+                temp.icon.symbol             =  value.1["Symbol"].stringValue
+                temp.icon.id                 =  value.1["Id"].stringValue
                 temp.favorite           =  false
                 Cryptocurrency.list.append(temp)
             }
@@ -69,9 +69,9 @@ class CryptoCompare {
         
         for i in start..<end {
             if i != end-1 {
-                cryptos += crypto[i].symbol + ","
+                cryptos += crypto[i].icon.symbol + ","
             } else {
-                cryptos += crypto[i].symbol
+                cryptos += crypto[i].icon.symbol
             }
         }
         
@@ -183,7 +183,7 @@ class CryptoCompare {
                 
                 let imageData = ImageData(context: DBMS.context)
                 imageData.data = imageFilter.filter(image).pngData()
-                imageData.id = Cryptocurrency.list[i].symbol.lowercased()
+                imageData.id = Cryptocurrency.list[i].icon.symbol.lowercased()
                 
                 Cryptocurrency.list[i].imageData = imageData
                 completion?()
