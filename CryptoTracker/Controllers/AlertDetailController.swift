@@ -10,14 +10,20 @@ import UIKit
 
 class AlertDetailController: UITableViewController,AlertProtocol {
 
+    
+    var crypto: Cryptocurrency?
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
     
     func setAlert(crypto: Cryptocurrency) {
-        print(crypto)
-      
+       
+        self.crypto = crypto
+        let storyBrd = UIStoryboard(name: "Popup", bundle: nil)
+        let popup = storyBrd.instantiateInitialViewController()! as! PopupController
+        
+        present(popup, animated: true)
+       // performSegue(withIdentifier: "goToPopup", sender: self)
     }
    
     @IBAction func AddAlert(_ sender: Any) {
@@ -25,9 +31,13 @@ class AlertDetailController: UITableViewController,AlertProtocol {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+           print("Going to popup")
         if segue.identifier == "goFromAlertToSearch" {
             let destinationVC = segue.destination as! SearchController
             destinationVC.alertDelegate = self
+        } else if segue.identifier == "goToPopup" {
+           
         }
     }
 }

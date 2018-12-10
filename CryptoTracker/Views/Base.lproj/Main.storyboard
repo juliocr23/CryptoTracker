@@ -224,11 +224,20 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <segue destination="92y-jW-LGa" kind="show" identifier="goFromAlertToSearch" id="2Wz-7E-f8m"/>
+                        <segue destination="4R5-ha-eY1" kind="presentation" identifier="goToPopup" id="f6E-mW-g0d"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n6w-IZ-EEg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1439.2" y="1733.8830584707648"/>
+        </scene>
+        <!--Popup-->
+        <scene sceneID="9Vq-dB-gLT">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Popup" id="4R5-ha-eY1" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SZP-aR-2it" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-742" y="1733"/>
         </scene>
         <!--alert-->
         <scene sceneID="Efq-qG-SFm">
