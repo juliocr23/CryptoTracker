@@ -12,9 +12,7 @@ import UIKit
 
 struct Cryptocurrency {
     var favorite: Bool = false
-    var imageData: ImageData!
     var price:Price!
     var icon: Icon!
-    
     static var list:[Cryptocurrency] = [Cryptocurrency]()
 }

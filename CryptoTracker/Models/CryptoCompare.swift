@@ -11,10 +11,6 @@ import SwiftyJSON
 import Alamofire
 import AlamofireImage
 
-/*
- 
- */
-
 class CryptoCompare {
     
     //URLs for Data request
@@ -179,9 +175,7 @@ class CryptoCompare {
             Cryptocurrency.list = Cryptocurrency.list.filter {
                 if $0.price == nil {
                     return false
-                } /*else if $0.price.price < 0.3 {
-                    return false
-                }*/
+                }
                 return true
             }
             print("Size of cryptocurrencies \(Cryptocurrency.list.count)")

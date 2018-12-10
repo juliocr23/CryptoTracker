@@ -63,9 +63,9 @@ class DetailController: UIViewController {
     }
     
     private func showIcon(){
-        if let data = crypto.imageData  {
+        if let data = crypto.icon  {
             icon.image = UIImage(data: data.data!)
-            icon.backgroundColor = UIColor.flatBlue()
+            icon.backgroundColor = UIColor(named: "default")
         }else{
             print("Image in Detail not found for \(crypto.icon.name)")
         }

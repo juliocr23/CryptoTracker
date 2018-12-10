@@ -12,6 +12,10 @@ import SVProgressHUD
 import Alamofire
 import SwiftyJSON
 
+protocol AlertProtocol {
+    func setAlert(crypto: Cryptocurrency);
+}
+
 
 class SearchController: UITableViewController, UISearchBarDelegate {
 
@@ -19,6 +23,8 @@ class SearchController: UITableViewController, UISearchBarDelegate {
     var display:[Cryptocurrency] = Cryptocurrency.list
     var cryptoComp: CryptoCompare = CryptoCompare()
     var selectedIndex = 0
+    var isAlertController = false
+    var alertDelegate:AlertProtocol?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,13 +35,15 @@ class SearchController: UITableViewController, UISearchBarDelegate {
         tableView.separatorStyle = .singleLine
         tableView.backgroundColor = UIColor.flatBlue()
         
-        loadImages()
-        SVProgressHUD.show()
-        self.cryptoComp.downloadPrices(completion: {
-            SVProgressHUD.dismiss()
-            self.display = Cryptocurrency.list
-            self.tableView.reloadData()
-        })
+        if display.isEmpty {
+            loadImages()
+            SVProgressHUD.show()
+            self.cryptoComp.downloadPrices(completion: {
+                SVProgressHUD.dismiss()
+                self.display = Cryptocurrency.list
+                self.tableView.reloadData()
+            })
+        }
     }
     
     func loadImages(){
@@ -61,7 +69,14 @@ class SearchController: UITableViewController, UISearchBarDelegate {
     //MARK: table methods
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedIndex =  indexPath.row
-        performSegue(withIdentifier: "goToDetails", sender: self)
+        
+        if alertDelegate != nil {
+           
+            navigationController?.popViewController(animated: true)
+            alertDelegate?.setAlert(crypto: display[selectedIndex])
+        }else {
+            performSegue(withIdentifier: "goToDetails", sender: self)
+        }
     }
     
     

@@ -22,6 +22,9 @@
 		773C4B0521B87B2B009D01A3 /* DetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773C4B0421B87B2A009D01A3 /* DetailController.swift */; };
 		77A6F08721B1D79200662D3E /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A6F08621B1D79100662D3E /* SearchCell.swift */; };
 		77A6F08921B1D7B800662D3E /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A6F08821B1D7B800662D3E /* SearchController.swift */; };
+		77AC6E6D21BDDF8900A643C4 /* Popup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77AC6E6C21BDDF8900A643C4 /* Popup.storyboard */; };
+		77AC6E6F21BDE9E900A643C4 /* PopupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AC6E6E21BDE9E900A643C4 /* PopupController.swift */; };
+		77C90E9B21BB6926009A0172 /* AlertDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C90E9A21BB6926009A0172 /* AlertDetailController.swift */; };
 		77DBC21521BB3FC900005B8A /* res in Resources */ = {isa = PBXBuildFile; fileRef = 77DBC21421BB3FC900005B8A /* res */; };
 		77DBC21921BB455A00005B8A /* Icon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DBC21821BB455A00005B8A /* Icon.swift */; };
 /* End PBXBuildFile section */
@@ -44,6 +47,9 @@
 		773C4B0421B87B2A009D01A3 /* DetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailController.swift; sourceTree = "<group>"; };
 		77A6F08621B1D79100662D3E /* SearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
 		77A6F08821B1D7B800662D3E /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
+		77AC6E6C21BDDF8900A643C4 /* Popup.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Popup.storyboard; sourceTree = "<group>"; };
+		77AC6E6E21BDE9E900A643C4 /* PopupController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupController.swift; sourceTree = "<group>"; };
+		77C90E9A21BB6926009A0172 /* AlertDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertDetailController.swift; sourceTree = "<group>"; };
 		77DBC21421BB3FC900005B8A /* res */ = {isa = PBXFileReference; lastKnownFileType = folder; path = res; sourceTree = "<group>"; };
 		77DBC21821BB455A00005B8A /* Icon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icon.swift; sourceTree = "<group>"; };
 		A4262D45DF9A1ED863674C53 /* Pods-CryptoTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptoTracker.release.xcconfig"; path = "Pods/Target Support Files/Pods-CryptoTracker/Pods-CryptoTracker.release.xcconfig"; sourceTree = "<group>"; };
@@ -115,6 +121,7 @@
 				772191B221B171650044A07D /* AppDelegate.swift */,
 				77A6F08821B1D7B800662D3E /* SearchController.swift */,
 				773C4B0421B87B2A009D01A3 /* DetailController.swift */,
+				77C90E9A21BB6926009A0172 /* AlertDetailController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -122,10 +129,20 @@
 		772191C921B1719A0044A07D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				77AC6E6B21BD852400A643C4 /* customView */,
 				772191BE21B171670044A07D /* LaunchScreen.storyboard */,
 				772191B621B171650044A07D /* Main.storyboard */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		77AC6E6B21BD852400A643C4 /* customView */ = {
+			isa = PBXGroup;
+			children = (
+				77AC6E6C21BDDF8900A643C4 /* Popup.storyboard */,
+				77AC6E6E21BDE9E900A643C4 /* PopupController.swift */,
+			);
+			path = customView;
 			sourceTree = "<group>";
 		};
 		C601E675DF7D57B722FBCF0B /* Pods */ = {
@@ -209,6 +226,7 @@
 				77DBC21521BB3FC900005B8A /* res in Resources */,
 				772191BD21B171670044A07D /* Assets.xcassets in Resources */,
 				772191B821B171650044A07D /* Main.storyboard in Resources */,
+				77AC6E6D21BDDF8900A643C4 /* Popup.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,6 +288,8 @@
 			files = (
 				772191BB21B171650044A07D /* CryptoTracker.xcdatamodeld in Sources */,
 				77DBC21921BB455A00005B8A /* Icon.swift in Sources */,
+				77AC6E6F21BDE9E900A643C4 /* PopupController.swift in Sources */,
+				77C90E9B21BB6926009A0172 /* AlertDetailController.swift in Sources */,
 				772191D121B187470044A07D /* Utilities.swift in Sources */,
 				77A6F08921B1D7B800662D3E /* SearchController.swift in Sources */,
 				77A6F08721B1D79200662D3E /* SearchCell.swift in Sources */,
