@@ -14,6 +14,8 @@ class AlertDetailController: UITableViewController,AlertProtocol {
     var crypto: Cryptocurrency?
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.backgroundColor = UIColor.flatBlueColorDark()
+        tableView.separatorStyle = .none
     }
     
     func setAlert(crypto: Cryptocurrency) {
@@ -22,6 +24,9 @@ class AlertDetailController: UITableViewController,AlertProtocol {
         let storyBrd = UIStoryboard(name: "Popup", bundle: nil)
         let popup = storyBrd.instantiateInitialViewController()! as! PopupController
         
+        popup.cryptoName  = crypto.icon.name
+        popup.cryptoImg   = UIImage(data:crypto.icon.data)
+        popup.cryptoPrice = Float(crypto.price.price)
         present(popup, animated: true)
        // performSegue(withIdentifier: "goToPopup", sender: self)
     }
