@@ -19,7 +19,7 @@ Missing DB for price Alert
  and how to allow the app to run in the background
  
  */
-class AlertDetailController: UITableViewController,AlertProtocol,PopupProtocol {
+class AlertController: UITableViewController,AlertProtocol,PopupProtocol {
     
 
     var crypto: Cryptocurrency?
@@ -42,6 +42,11 @@ class AlertDetailController: UITableViewController,AlertProtocol,PopupProtocol {
         popup.cryptoPrice = Float(crypto.price.price)
         popup.delegate    = self
         present(popup, animated: true)
+    }
+    
+
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 0
     }
     
     func getPriceAlert(priceAlert: Double,above: Bool) {

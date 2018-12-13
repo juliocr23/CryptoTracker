@@ -8,11 +8,6 @@
 
 import UIKit
 
-
-/*
- Note when tapping in the popup view it dismissed this class.
- */
-
 protocol  PopupProtocol {
     func getPriceAlert(priceAlert: Double,above: Bool);
 }
@@ -122,8 +117,6 @@ class PopupController: UIViewController {
         belowPrice.textColor = UIColor.lightGray
         abovePrice.textColor = UIColor.lightGray
     }
-    
-    
     
     func setTapRecognition(){
 

@@ -117,7 +117,7 @@ class SearchController: UITableViewController, UISearchBarDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "goToDetails" {
-           let destinationVC = segue.destination as! DetailController
+           let destinationVC = segue.destination as! graphController
             destinationVC.crypto = display[selectedIndex]
         }
     }

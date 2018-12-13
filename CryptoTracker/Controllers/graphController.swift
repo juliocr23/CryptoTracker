@@ -11,7 +11,7 @@ import Charts
 import SwiftyJSON
 import SVProgressHUD
 
-class DetailController: UIViewController {
+class graphController: UIViewController {
 
     @IBOutlet weak var supply: UILabel!
     @IBOutlet weak var volume: UILabel!
