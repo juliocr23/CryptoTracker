@@ -17,15 +17,17 @@ func binarySearch(crypto: [Cryptocurrency], start: Int, end: Int, key: String)->
     var right = end
     var found = -1
     
+    let keyL = key.lowercased()
+    
     while left <= right  && found == -1 {
         
         let mid = (left + right)/2
         
-        if crypto[mid].icon.symbol.lowercased() == key {
+        if crypto[mid].icon.symbol.lowercased() == keyL {
             found = mid
-        } else if crypto[mid].icon.symbol.lowercased() < key {
+        } else if crypto[mid].icon.symbol.lowercased() < keyL {
             left = mid + 1
-        } else if crypto[mid].icon.symbol.lowercased() > key {
+        } else if crypto[mid].icon.symbol.lowercased() > keyL {
             right = mid - 1
         }
     }

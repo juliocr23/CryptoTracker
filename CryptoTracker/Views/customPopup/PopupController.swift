@@ -78,6 +78,7 @@ class PopupController: UIViewController {
                 priceAlert.above  = isAbove
                 priceAlert.price  = Double(slider!.value).rounded(places: 2)
                 priceAlert.date   = Date()
+                priceAlert.active = true
                 priceAlert.symbol = crypto!.icon.symbol
                 crypto!.alerts.append(priceAlert)
                 DBMS.saveData()

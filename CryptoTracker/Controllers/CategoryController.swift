@@ -83,9 +83,7 @@ class CategoryController: UITableViewController,AlertProtocol,PopupProtocol {
     
     func complete(crypto: Cryptocurrency) {
         
-        let result = binarySearch(crypto: display, start: 0, end: display.count, key: crypto.icon.symbol.lowercased())
-        
-        print("Result is \(result)")
+        let result = binarySearch(crypto: display, start: 0, end: display.count, key: crypto.icon.symbol)
         
         if result == -1 {
             display.append(crypto)
