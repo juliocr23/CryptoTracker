@@ -37,6 +37,8 @@ class CategoryController: UITableViewController,AlertProtocol,PopupProtocol {
         } else {
             tableView.separatorStyle  = .none
         }
+        
+         display.sort(by:{$0.icon.symbol < $1.icon.symbol})
     }
     
     //MARK: Protocol methods
@@ -81,7 +83,9 @@ class CategoryController: UITableViewController,AlertProtocol,PopupProtocol {
     
     func complete(crypto: Cryptocurrency) {
         
-        let result = binarySearch(crypto: display, start: 0, end: display.count, key: crypto.icon.symbol)
+        let result = binarySearch(crypto: display, start: 0, end: display.count, key: crypto.icon.symbol.lowercased())
+        
+        print("Result is \(result)")
         
         if result == -1 {
             display.append(crypto)
