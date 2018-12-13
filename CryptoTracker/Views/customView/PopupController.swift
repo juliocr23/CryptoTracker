@@ -8,13 +8,21 @@
 
 import UIKit
 
+
+/*
+ Note when tapping it deletes
+ */
+
+protocol  PopupProtocol {
+    func getPriceAlert(priceAlert: Double,above: Bool);
+}
+
 class PopupController: UIViewController {
 
   @IBOutlet weak  private var belowPrice: UILabel!
   @IBOutlet weak  private var price: UILabel!
   @IBOutlet weak  private var abovePrice: UILabel!
   @IBOutlet weak  private var slider: UISlider!
-  @IBOutlet weak  private var sliderPrice: UILabel!
   @IBOutlet weak  private var icon: UIImageView!
   @IBOutlet weak  private var name: UILabel!
   @IBOutlet weak  private var messageView: UIView!
@@ -22,23 +30,16 @@ class PopupController: UIViewController {
     var cryptoName:String?
     var cryptoImg:UIImage?
     var cryptoPrice: Float = 0
+    var delegate:PopupProtocol?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let cryptoName = cryptoName {
-            name.text = cryptoName
-        }
-        
-        if let img = cryptoImg {
-            icon.image = img
-        }
-        
+        setName()
+        setImage()
         price.text = "$\(cryptoPrice)"
-        sliderPrice.text = "\(cryptoPrice)"
-        slider.minimumValue = 0
-        slider.maximumValue = cryptoPrice*2
-        slider.value = cryptoPrice
+        setSlider()
+        setTapRecognition()
     }
     
     @IBAction func cancel(_ sender: UIButton) {
@@ -46,16 +47,79 @@ class PopupController: UIViewController {
     }
     
     @IBAction func valueChange(_ sender: UISlider) {
-          sliderPrice.text = "\(Double(sender.value).rounded(places: 2))"
-          sliderPrice.sizeToFit()
+        
+      price.text = "\(Double(sender.value).rounded(places: 2))"
+      price.sizeToFit()
         
         if slider.value < cryptoPrice {
-            belowPrice.textColor = UIColor.flatRed()
+            belowPrice.textColor = UIColor.flatRed()?.lighten(byPercentage: 20)
             abovePrice.textColor = UIColor.lightGray
         } else if slider.value > cryptoPrice {
             belowPrice.textColor = UIColor.lightGray
-            abovePrice.textColor = UIColor.flatMintColorDark()
+            abovePrice.textColor = UIColor.flatGreen()
         }
+    }
+    
+   
+   @objc func createNewPriceAlert(sender:UITapGestureRecognizer) {
+  
+        if let recognizers =  messageView.gestureRecognizers{
+            if recognizers[0] == sender {
+                
+                print("Creating price Alert")
+                
+                let isAbove = slider!.value > cryptoPrice
+                delegate?.getPriceAlert(priceAlert: Double(slider!.value), above:isAbove)
+                dismiss(animated: true)
+            }
+        }
+    }
+    
+    @objc func cancelPriceAlert(sender:UITapGestureRecognizer) {
+        if let recognizers = view.gestureRecognizers {
+            if recognizers[0] == sender {
+                  print("Clicking outside of popup")
+                  dismiss(animated: true)
+            }
+        }
+    }
+    
+    func setName(){
+        if let cryptoName = cryptoName {
+            name.text = cryptoName
+        }
+    }
+    
+    func setImage(){
+        if let img = cryptoImg {
+            icon.image = img
+        }
+    }
+    
+    func setSlider(){
+        price.text = "\(cryptoPrice)"
+        
+        if cryptoPrice == 0 {
+            slider.minimumValue = -1
+            slider.maximumValue = 1
+        } else {
+             slider.minimumValue = 0
+            slider.maximumValue = cryptoPrice*2
+        }
+        slider.value = cryptoPrice
+    }
+    
+    func setTapRecognition(){
+
+        let cancelAlertTap = UITapGestureRecognizer(target: self,
+                                                    action: #selector(cancelPriceAlert))
+        view.isUserInteractionEnabled = true
+        view.addGestureRecognizer(cancelAlertTap)
+        
+        let createAlertTap = UITapGestureRecognizer(target: self,
+                                                    action: #selector(createNewPriceAlert))
+        messageView.isUserInteractionEnabled = true
+        messageView.addGestureRecognizer(createAlertTap)
     }
     
 }

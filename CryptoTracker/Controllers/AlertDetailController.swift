@@ -8,9 +8,20 @@
 
 import UIKit
 
-class AlertDetailController: UITableViewController,AlertProtocol {
 
+
+/*
+ TODO:
+ 
+Missing DB for price Alert
+ and background thread to request for price for those priceAlert
+ Need to learn how to send notification
+ and how to allow the app to run in the background
+ 
+ */
+class AlertDetailController: UITableViewController,AlertProtocol,PopupProtocol {
     
+
     var crypto: Cryptocurrency?
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,6 +29,8 @@ class AlertDetailController: UITableViewController,AlertProtocol {
         tableView.separatorStyle = .none
     }
     
+    
+    //MARK: Protocol methods
     func setAlert(crypto: Cryptocurrency) {
        
         self.crypto = crypto
@@ -27,8 +40,13 @@ class AlertDetailController: UITableViewController,AlertProtocol {
         popup.cryptoName  = crypto.icon.name
         popup.cryptoImg   = UIImage(data:crypto.icon.data)
         popup.cryptoPrice = Float(crypto.price.price)
+        popup.delegate    = self
         present(popup, animated: true)
-       // performSegue(withIdentifier: "goToPopup", sender: self)
+    }
+    
+    func getPriceAlert(priceAlert: Double,above: Bool) {
+       //Create DB for Alert
+        print("Creating Alert for price for \(priceAlert)")
     }
    
     @IBAction func AddAlert(_ sender: Any) {
@@ -36,13 +54,9 @@ class AlertDetailController: UITableViewController,AlertProtocol {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-           print("Going to popup")
         if segue.identifier == "goFromAlertToSearch" {
             let destinationVC = segue.destination as! SearchController
             destinationVC.alertDelegate = self
-        } else if segue.identifier == "goToPopup" {
-           
         }
     }
 }
