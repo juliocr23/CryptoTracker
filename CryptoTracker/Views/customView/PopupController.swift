@@ -26,6 +26,7 @@ class PopupController: UIViewController {
   @IBOutlet weak  private var icon: UIImageView!
   @IBOutlet weak  private var name: UILabel!
   @IBOutlet weak  private var messageView: UIView!
+  @IBOutlet weak var createPriceAlertLabel: UILabel!
     
     var cryptoName:String?
     var cryptoImg:UIImage?
@@ -52,9 +53,15 @@ class PopupController: UIViewController {
       price.sizeToFit()
         
         if slider.value < cryptoPrice {
+            createPriceAlertLabel.textColor = UIColor.flatWhite()
             belowPrice.textColor = UIColor.flatRed()?.lighten(byPercentage: 20)
             abovePrice.textColor = UIColor.lightGray
-        } else if slider.value > cryptoPrice {
+        } else if slider.value == cryptoPrice {
+            createPriceAlertLabel.textColor = UIColor.flatWhiteColorDark()
+            belowPrice.textColor = UIColor.lightGray
+            abovePrice.textColor = UIColor.lightGray
+        }else if slider.value > cryptoPrice {
+            createPriceAlertLabel.textColor = UIColor.flatWhite()
             belowPrice.textColor = UIColor.lightGray
             abovePrice.textColor = UIColor.flatGreen()
         }
@@ -107,6 +114,10 @@ class PopupController: UIViewController {
             slider.maximumValue = cryptoPrice*2
         }
         slider.value = cryptoPrice
+        
+        createPriceAlertLabel.textColor = UIColor.flatWhiteColorDark()
+        belowPrice.textColor = UIColor.lightGray
+        abovePrice.textColor = UIColor.lightGray
     }
     
     func setTapRecognition(){
