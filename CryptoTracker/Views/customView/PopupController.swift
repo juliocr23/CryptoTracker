@@ -9,7 +9,7 @@
 import UIKit
 
 protocol  PopupProtocol {
-    func getPriceAlert(priceAlert: Double,above: Bool);
+    func complete(crypto: Cryptocurrency);
 }
 
 class PopupController: UIViewController {
@@ -24,9 +24,7 @@ class PopupController: UIViewController {
   @IBOutlet weak var createPriceAlertLabel: UILabel!
   @IBOutlet weak var popUpView: UIView!
     
-    var cryptoName:String?
-    var cryptoImg:UIImage?
-    var cryptoPrice: Float = 0
+    var crypto: Cryptocurrency?
     var delegate:PopupProtocol?
     
     override func viewDidLoad() {
@@ -34,7 +32,7 @@ class PopupController: UIViewController {
         
         setName()
         setImage()
-        price.text = "$\(cryptoPrice)"
+        price.text = "$\(crypto!.price.price)"
         setSlider()
         setTapRecognition()
     }
@@ -48,15 +46,16 @@ class PopupController: UIViewController {
       price.text = "\(Double(sender.value).rounded(places: 2))"
       price.sizeToFit()
         
-        if slider.value < cryptoPrice {
+        let priceCrypt = Float(crypto!.price.price)
+        if slider.value < priceCrypt {
             createPriceAlertLabel.textColor = UIColor.flatWhite()
             belowPrice.textColor = UIColor.flatRed()?.lighten(byPercentage: 20)
             abovePrice.textColor = UIColor.lightGray
-        } else if slider.value == cryptoPrice {
+        } else if slider.value == priceCrypt {
             createPriceAlertLabel.textColor = UIColor.flatWhiteColorDark()
             belowPrice.textColor = UIColor.lightGray
             abovePrice.textColor = UIColor.lightGray
-        }else if slider.value > cryptoPrice {
+        }else if slider.value > priceCrypt {
             createPriceAlertLabel.textColor = UIColor.flatWhite()
             belowPrice.textColor = UIColor.lightGray
             abovePrice.textColor = UIColor.flatGreen()
@@ -65,14 +64,25 @@ class PopupController: UIViewController {
     
    @objc func createNewPriceAlert(sender:UITapGestureRecognizer) {
   
-    if slider.value != cryptoPrice,
+    let priceCrypt = Float(crypto!.price.price)
+    if slider.value !=  priceCrypt,
         let recognizers =  createPriceAlertView.gestureRecognizers{
             if recognizers[0] == sender {
                 
                 print("Creating price Alert")
                 
-                let isAbove = slider!.value > cryptoPrice
-                delegate?.getPriceAlert(priceAlert: Double(slider!.value), above:isAbove)
+                let isAbove = slider!.value > priceCrypt
+                
+                //Create priceAlert
+                let priceAlert  = PriceAlert(context: DBMS.context)
+                priceAlert.above  = isAbove
+                priceAlert.price  = Double(slider!.value).rounded(places: 2)
+                priceAlert.date   = Date()
+                priceAlert.symbol = crypto!.icon.symbol
+                crypto!.alerts.append(priceAlert)
+                DBMS.saveData()
+                
+                delegate?.complete(crypto: crypto!)
                 dismiss(animated: true)
             }
         }
@@ -90,28 +100,27 @@ class PopupController: UIViewController {
     }
     
     func setName(){
-        if let cryptoName = cryptoName {
-            name.text = cryptoName
-        }
+        name.text = crypto!.icon.name
     }
     
     func setImage(){
-        if let img = cryptoImg {
+        if let img = UIImage(data: crypto!.icon.data ){
             icon.image = img
         }
     }
     
     func setSlider(){
-        price.text = "\(cryptoPrice)"
+        price.text = "\(crypto!.price.price)"
         
-        if cryptoPrice == 0 {
+        let priceCrypt = Float(crypto!.price.price)
+        if priceCrypt == 0.0 {
             slider.minimumValue = -1
             slider.maximumValue = 1
         } else {
              slider.minimumValue = 0
-            slider.maximumValue = cryptoPrice*2
+            slider.maximumValue = priceCrypt*2
         }
-        slider.value = cryptoPrice
+        slider.value = priceCrypt
         
         createPriceAlertLabel.textColor = UIColor.flatWhiteColorDark()
         belowPrice.textColor = UIColor.lightGray

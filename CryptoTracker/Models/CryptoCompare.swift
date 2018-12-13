@@ -45,11 +45,13 @@ class CryptoCompare {
         for value in json {
             
             if value.1["IsTrading"].boolValue {
+             
+                let icon  = Icon()
+                icon.name               =  value.1["CoinName"].stringValue
+                icon.symbol             =  value.1["Symbol"].stringValue
+                icon.id                 =  value.1["Id"].stringValue
                 
-                var temp  = Cryptocurrency()
-                temp.icon.name               =  value.1["CoinName"].stringValue
-                temp.icon.symbol             =  value.1["Symbol"].stringValue
-                temp.icon.id                 =  value.1["Id"].stringValue
+                let temp  = Cryptocurrency(icon: icon)
                 temp.favorite           =  false
                 Cryptocurrency.list.append(temp)
             }

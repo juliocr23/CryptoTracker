@@ -55,8 +55,7 @@ class SearchController: UITableViewController, UISearchBarDelegate {
             let  icons      = try jsonDecoder.decode([Icon].self, from: jsonData)
             
             for value in icons {
-                var crypto = Cryptocurrency()
-                crypto.icon = value
+                let crypto = Cryptocurrency(icon: value)
                 Cryptocurrency.list.append(crypto)
             }
           

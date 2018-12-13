@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14460.32" systemVersion="18B75" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="PriceAlert" representedClassName="PriceAlert" syncable="YES" codeGenerationType="class">
-        <attribute name="above" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="price" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="symbol" optional="YES" attributeType="String" syncable="YES"/>
+    <entity name="PriceAlert" representedClassName=".PriceAlert" syncable="YES" codeGenerationType="class">
+        <attribute name="above" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="date" attributeType="Date" defaultDateTimeInterval="566424900" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="price" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="symbol" attributeType="String" defaultValueString="&quot;&quot;" syncable="YES"/>
     </entity>
     <elements>
-        <element name="PriceAlert" positionX="-63" positionY="-18" width="128" height="90"/>
+        <element name="PriceAlert" positionX="-63" positionY="-18" width="128" height="105"/>
     </elements>
 </model>

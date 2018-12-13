@@ -10,9 +10,20 @@ import Foundation
 import CoreData
 import UIKit
 
-struct Cryptocurrency {
+class Cryptocurrency {
     var favorite: Bool = false
     var price:Price!
     var icon: Icon!
+    var alerts:[PriceAlert]
+    
+    init(icon: Icon){
+        self.icon = icon
+        
+        if let priceAlerts = DBMS.getAlerts(for: icon.symbol) {
+           alerts = priceAlerts
+        }else {
+            alerts = [PriceAlert]()
+        }
+    }
     static var list:[Cryptocurrency] = [Cryptocurrency]()
 }
