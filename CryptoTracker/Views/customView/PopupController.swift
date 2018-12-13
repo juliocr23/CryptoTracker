@@ -70,7 +70,8 @@ class PopupController: UIViewController {
    
    @objc func createNewPriceAlert(sender:UITapGestureRecognizer) {
   
-        if let recognizers =  messageView.gestureRecognizers{
+    if slider.value != cryptoPrice,
+        let recognizers =  messageView.gestureRecognizers{
             if recognizers[0] == sender {
                 
                 print("Creating price Alert")
