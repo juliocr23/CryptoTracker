@@ -133,9 +133,10 @@
                         <outlet property="abovePrice" destination="cAL-fm-qWk" id="8Is-jL-uLS"/>
                         <outlet property="belowPrice" destination="E3h-ow-9gF" id="RjR-zw-BzB"/>
                         <outlet property="createPriceAlertLabel" destination="PNm-Pm-jWu" id="2UE-YC-pcK"/>
+                        <outlet property="createPriceAlertView" destination="bfA-84-8v2" id="0XF-Bm-OpN"/>
                         <outlet property="icon" destination="mLN-ts-Vhj" id="Soj-ZR-ue7"/>
-                        <outlet property="messageView" destination="bfA-84-8v2" id="0XF-Bm-OpN"/>
                         <outlet property="name" destination="3Tc-gx-Ckb" id="3UK-O4-WEL"/>
+                        <outlet property="popUpView" destination="MwU-VH-WX5" id="cMt-mH-eJZ"/>
                         <outlet property="price" destination="Rfh-Za-vyS" id="pBF-t6-afb"/>
                         <outlet property="slider" destination="jcc-1V-MLh" id="hog-C8-ehS"/>
                     </connections>

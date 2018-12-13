@@ -10,7 +10,7 @@ import UIKit
 
 
 /*
- Note when tapping it deletes
+ Note when tapping in the popup view it dismissed this class.
  */
 
 protocol  PopupProtocol {
@@ -25,8 +25,9 @@ class PopupController: UIViewController {
   @IBOutlet weak  private var slider: UISlider!
   @IBOutlet weak  private var icon: UIImageView!
   @IBOutlet weak  private var name: UILabel!
-  @IBOutlet weak  private var messageView: UIView!
+  @IBOutlet weak  private var createPriceAlertView: UIView!
   @IBOutlet weak var createPriceAlertLabel: UILabel!
+  @IBOutlet weak var popUpView: UIView!
     
     var cryptoName:String?
     var cryptoImg:UIImage?
@@ -67,11 +68,10 @@ class PopupController: UIViewController {
         }
     }
     
-   
    @objc func createNewPriceAlert(sender:UITapGestureRecognizer) {
   
     if slider.value != cryptoPrice,
-        let recognizers =  messageView.gestureRecognizers{
+        let recognizers =  createPriceAlertView.gestureRecognizers{
             if recognizers[0] == sender {
                 
                 print("Creating price Alert")
@@ -84,12 +84,14 @@ class PopupController: UIViewController {
     }
     
     @objc func cancelPriceAlert(sender:UITapGestureRecognizer) {
-        if let recognizers = view.gestureRecognizers {
-            if recognizers[0] == sender {
-                  print("Clicking outside of popup")
-                  dismiss(animated: true)
-            }
+        
+        let location = sender.location(in: nil)
+        
+        if  !popUpView.frame.contains(location) {
+             print("Clicked out side of popup")
+             dismiss(animated: true)
         }
+        
     }
     
     func setName(){
@@ -121,8 +123,11 @@ class PopupController: UIViewController {
         abovePrice.textColor = UIColor.lightGray
     }
     
+    
+    
     func setTapRecognition(){
 
+        //For when user tap outside the pop up view
         let cancelAlertTap = UITapGestureRecognizer(target: self,
                                                     action: #selector(cancelPriceAlert))
         view.isUserInteractionEnabled = true
@@ -130,8 +135,9 @@ class PopupController: UIViewController {
         
         let createAlertTap = UITapGestureRecognizer(target: self,
                                                     action: #selector(createNewPriceAlert))
-        messageView.isUserInteractionEnabled = true
-        messageView.addGestureRecognizer(createAlertTap)
+        createPriceAlertView.isUserInteractionEnabled = true
+        createPriceAlertView.addGestureRecognizer(createAlertTap)
+        
     }
     
 }
