@@ -553,4 +553,5 @@
     <inferredMetricsTieBreakers>
         <segue reference="2Wz-7E-f8m"/>
     </inferredMetricsTieBreakers>
+    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>
