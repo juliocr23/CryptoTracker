@@ -23,7 +23,9 @@ class CategoryController: UITableViewController,AlertProtocol,PopupProtocol {
     
     var display: [Cryptocurrency]!
     var segueToAssets = "goToAssets"
+    var segueToAlerts = "goToAlerts"
     var cellIdentifier = "categoryCell"
+    var selectedIndex  = -1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,7 +59,8 @@ class CategoryController: UITableViewController,AlertProtocol,PopupProtocol {
     //MARK: Table methods
     //--------------------------------------------------------------------------------------\\
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-       
+        selectedIndex = indexPath.row
+        performSegue(withIdentifier: segueToAlerts , sender: self)
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -80,6 +83,9 @@ class CategoryController: UITableViewController,AlertProtocol,PopupProtocol {
         if segue.identifier == segueToAssets {
             let destinationVC = segue.destination as! SearchController
             destinationVC.alertDelegate = self
+        } else if segue.identifier == segueToAlerts {
+            let destinationVC = segue.destination as! AlertController
+            destinationVC.crypto = display[selectedIndex]
         }
     }
     

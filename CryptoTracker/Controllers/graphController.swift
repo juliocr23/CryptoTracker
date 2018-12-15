@@ -37,8 +37,9 @@ class graphController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+      
       SVProgressHUD.show()
+      print("Crypto is \(crypto.icon.name)")
       showPrice()
       displayGraph()
     }
@@ -83,6 +84,7 @@ class graphController: UIViewController {
     //MARK: Graph methods
     private func displayGraph(){
         
+        print("Parameters \(getParameters())")
         getJsonRequest(url: getURL(),parameters: getParameters()) {(json) in
             self.parseHistoricalData(json: json)
             self.setGraph()
@@ -104,9 +106,9 @@ class graphController: UIViewController {
     private func getParameters()->[String:String] {
         switch graphIndex {
         case 0,1,2,3,4:
-            return  CryptoCompare.requestHistory(for:crypto.icon.symbol)
+            return  cryptoComp.requestHistory(for:crypto.icon.symbol)
         default:
-            return  CryptoCompare.requestAllHistory(for:crypto.icon.symbol)
+            return  cryptoComp.requestAllHistory(for:crypto.icon.symbol)
         }
     }
     
@@ -127,6 +129,7 @@ class graphController: UIViewController {
         }
     }
     private func setGraph(){
+        
             graphView.data = graphModel.getData(data: historicalData)
             graphView.leftAxis.enabled = false
             graphView.rightAxis.enabled = false
@@ -169,7 +172,7 @@ class graphController: UIViewController {
              SVProgressHUD.show()
              chngGraphBttnColor(index: 0)
             
-             CryptoCompare.limit = getLimit(index: graphIndex)
+             cryptoComp.limit = getLimit(index: graphIndex)
              displayGraph()
         }
     }
@@ -184,7 +187,7 @@ class graphController: UIViewController {
             SVProgressHUD.show()
             chngGraphBttnColor(index: 1)
             
-            CryptoCompare.limit = getLimit(index: graphIndex)
+            cryptoComp.limit = getLimit(index: graphIndex)
             displayGraph()
         }
     }
@@ -198,7 +201,7 @@ class graphController: UIViewController {
             SVProgressHUD.show()
             chngGraphBttnColor(index: 2)
             
-            CryptoCompare.limit = getLimit(index: graphIndex)
+            cryptoComp.limit = getLimit(index: graphIndex)
             displayGraph()
         }
     }
@@ -212,7 +215,7 @@ class graphController: UIViewController {
             SVProgressHUD.show()
             chngGraphBttnColor(index: 3)
             
-            CryptoCompare.limit = getLimit(index: graphIndex)
+            cryptoComp.limit = getLimit(index: graphIndex)
             displayGraph()
         }
     }
@@ -225,7 +228,7 @@ class graphController: UIViewController {
             SVProgressHUD.show()
             chngGraphBttnColor(index: 4)
          
-            CryptoCompare.limit = getLimit(index: graphIndex)
+            cryptoComp.limit = getLimit(index: graphIndex)
             displayGraph()
         }
     }

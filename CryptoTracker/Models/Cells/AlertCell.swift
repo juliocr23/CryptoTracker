@@ -10,7 +10,8 @@ import UIKit
 
 class AlertCell: UITableViewCell {
     
-    @IBOutlet weak var icon: UILabel!
+   
+    @IBOutlet weak var icon: UIImageView!
     @IBOutlet weak var alertMessage: UILabel!
     var alert: PriceAlert!
     @IBOutlet weak var onOffSwitch: UISwitch!
@@ -29,11 +30,17 @@ class AlertCell: UITableViewCell {
         onOffSwitch.isOn = alert.active
         
         if alert.above {
-            icon.text = "📈"
-            alertMessage.text = "\(alert.symbol!) is above \(alert.price)"
+            let temp = UIImage(named: "upwardTrend")
+            icon.image = temp?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
+            icon.tintColor = UIColor.white
+         
+            alertMessage.text = "\(alert.symbol!) is above $\(alert.price)"
         } else {
-            icon.text = "📉"
-            alertMessage.text = "\(alert.symbol!) is below \(alert.price)"
+            let temp = UIImage(named: "downwardTrend")
+            icon.image = temp?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
+            icon.tintColor = UIColor.white
+          
+            alertMessage.text = "\(alert.symbol!) is below $\(alert.price)"
         }
         
     }

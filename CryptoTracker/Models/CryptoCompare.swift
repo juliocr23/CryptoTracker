@@ -22,8 +22,8 @@ class CryptoCompare {
     static let multiPriceUrl = "https://min-api.cryptocompare.com/data/pricemultifull?"
     
     //Requests parameters
-    static let market: String = "USD"
-    static var limit: String = "60"
+    let market: String = "USD"
+    var limit: String = "60"
     var priceThreadGroup = DispatchGroup()
     var imageThreadGroup = DispatchGroup()
     var priceCalls = 0
@@ -73,7 +73,7 @@ class CryptoCompare {
         }
         
         return ["fsyms": cryptos,
-                "tsyms": CryptoCompare.market]
+                "tsyms": market]
     }
     
     func downloadPrices(completion:(()->())?){
@@ -129,7 +129,7 @@ class CryptoCompare {
                                       end: end,
                                       key: value.0.lowercased())
             if result != -1 {
-                let price =  parsePrice(raw: value.1[CryptoCompare.market])
+                let price =  parsePrice(raw: value.1[market])
                 Cryptocurrency.list[result].price = price
             }
         }
@@ -151,14 +151,14 @@ class CryptoCompare {
     
                                         //MARK: Historical Data
     //-------------------------------------------------------------------------------------------------------------\\
-   static func requestHistory(for crypto: String) -> [String: String] {
+   func requestHistory(for crypto: String) -> [String: String] {
         return ["fsym": crypto,
-               "tsym": market,
-               "limit": limit,
-               "extraParams": "Stock"]
+                "tsym": market,
+                "limit": limit,
+                "extraParams": "Stock"]
     }
     
-  static func requestAllHistory(for crypto: String) -> [String: String] {
+  func requestAllHistory(for crypto: String) -> [String: String] {
         return ["fsym": crypto,
                 "tsym": market,
                 "allData":"true",
