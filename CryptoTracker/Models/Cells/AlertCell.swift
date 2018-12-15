@@ -34,13 +34,13 @@ class AlertCell: UITableViewCell {
             icon.image = temp?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
             icon.tintColor = UIColor.white
          
-            alertMessage.text = "\(alert.symbol!) is above $\(alert.price)"
+            alertMessage.text = "Above $\(alert.price)"
         } else {
             let temp = UIImage(named: "downwardTrend")
             icon.image = temp?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
             icon.tintColor = UIColor.white
           
-            alertMessage.text = "\(alert.symbol!) is below $\(alert.price)"
+            alertMessage.text = "Below $\(alert.price)"
         }
         
     }

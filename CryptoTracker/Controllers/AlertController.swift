@@ -24,6 +24,10 @@ class AlertController: UITableViewController {
             tableView.separatorStyle  = .singleLine
             tableView.tableFooterView = UIView()
         }
+        
+        if crypto != nil {
+            title = crypto!.icon.name + " (" + crypto!.icon.symbol + ")"
+        }
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
