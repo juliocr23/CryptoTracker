@@ -179,10 +179,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.33333333329999998" green="0.38823529410000002" blue="0.63137254899999995" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="categoryCell" editingAccessoryType="disclosureIndicator" rowHeight="57" id="8wN-22-XG3" customClass="categoryCell" customModule="CryptoTracker" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFit" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="categoryCell" rowHeight="57" id="8wN-22-XG3" customClass="categoryCell" customModule="CryptoTracker" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="57"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8wN-22-XG3" id="JgK-LP-nwa">
+                                <tableViewCellContentView key="contentView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8wN-22-XG3" id="JgK-LP-nwa">
                                     <rect key="frame" x="0.0" y="0.0" width="341" height="56.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
@@ -195,8 +195,8 @@
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Qwo-O1-zW2">
                                             <rect key="frame" x="8" y="8" width="40" height="40"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="40" id="Q5h-A4-JNV"/>
-                                                <constraint firstAttribute="width" constant="40" id="gqx-bb-kCz"/>
+                                                <constraint firstAttribute="height" constant="40" id="UVy-Ba-TDT"/>
+                                                <constraint firstAttribute="width" constant="40" id="yn3-J2-oPB"/>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alerts (10)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qtK-8k-nmm">
@@ -208,15 +208,19 @@
                                     </subviews>
                                     <color key="backgroundColor" red="0.17257410287857056" green="0.21834245324134827" blue="0.44677489995956421" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
-                                        <constraint firstItem="Qwo-O1-zW2" firstAttribute="leading" secondItem="JgK-LP-nwa" secondAttribute="leading" constant="8" id="GVe-aZ-uas"/>
-                                        <constraint firstItem="qtK-8k-nmm" firstAttribute="trailing" secondItem="JgK-LP-nwa" secondAttribute="trailingMargin" id="Har-Pn-8FB"/>
-                                        <constraint firstItem="Qwo-O1-zW2" firstAttribute="top" secondItem="JgK-LP-nwa" secondAttribute="top" constant="8" id="PCM-ae-keg"/>
-                                        <constraint firstItem="dS6-Fz-lfF" firstAttribute="leading" secondItem="Qwo-O1-zW2" secondAttribute="trailing" constant="8" id="ZgJ-vd-aED"/>
-                                        <constraint firstItem="qtK-8k-nmm" firstAttribute="top" secondItem="JgK-LP-nwa" secondAttribute="topMargin" constant="7" id="nVh-qt-rdx"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="qtK-8k-nmm" secondAttribute="bottom" constant="7" id="2JX-hK-t82"/>
+                                        <constraint firstItem="Qwo-O1-zW2" firstAttribute="leading" secondItem="JgK-LP-nwa" secondAttribute="leading" constant="8" id="617-9N-BZs"/>
+                                        <constraint firstAttribute="bottom" secondItem="Qwo-O1-zW2" secondAttribute="bottom" constant="8" id="AaF-YP-1Ad"/>
+                                        <constraint firstItem="dS6-Fz-lfF" firstAttribute="leading" secondItem="Qwo-O1-zW2" secondAttribute="trailing" constant="8" id="KVC-ka-Q5W"/>
+                                        <constraint firstItem="Qwo-O1-zW2" firstAttribute="top" secondItem="JgK-LP-nwa" secondAttribute="top" constant="8" id="PzU-qs-Tpc"/>
+                                        <constraint firstItem="qtK-8k-nmm" firstAttribute="trailing" secondItem="JgK-LP-nwa" secondAttribute="trailingMargin" id="QO9-xi-VHZ"/>
+                                        <constraint firstItem="qtK-8k-nmm" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="dS6-Fz-lfF" secondAttribute="trailing" constant="154" id="eSu-uy-E4l"/>
                                         <constraint firstItem="dS6-Fz-lfF" firstAttribute="top" secondItem="JgK-LP-nwa" secondAttribute="topMargin" constant="6" id="pg0-1B-Pp1"/>
+                                        <constraint firstItem="qtK-8k-nmm" firstAttribute="top" secondItem="JgK-LP-nwa" secondAttribute="topMargin" constant="7" id="sPr-ww-mK0"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.17257410287857056" green="0.21834245324134827" blue="0.44677489995956421" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="0.1725741029" green="0.21834245320000001" blue="0.44677489999999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="icon" destination="Qwo-O1-zW2" id="ROc-qX-iJ8"/>
                                     <outlet property="message" destination="qtK-8k-nmm" id="5g3-Vr-74W"/>

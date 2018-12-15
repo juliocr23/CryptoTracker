@@ -177,8 +177,6 @@ class graphController: UIViewController {
         }
     }
     
-  
-    
     @IBAction func show1Day(_ sender: UIButton) {
         
         print("one day graph")

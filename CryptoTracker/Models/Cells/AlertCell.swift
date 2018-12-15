@@ -26,6 +26,7 @@ class AlertCell: UITableViewCell {
     }
     
     func setAlert(alert: PriceAlert) {
+        
         self.alert =  alert
         onOffSwitch.isOn = alert.active
         
