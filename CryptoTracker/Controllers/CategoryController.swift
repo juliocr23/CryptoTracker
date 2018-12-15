@@ -23,6 +23,7 @@ class CategoryController: UITableViewController,AlertProtocol,PopupProtocol {
     
     var display: [Cryptocurrency]!
     var segueToAssets = "goToAssets"
+    var cellIdentifier = "categoryCell"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,7 +66,7 @@ class CategoryController: UITableViewController,AlertProtocol,PopupProtocol {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "alertCell", for: indexPath)  as! categoryCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)  as! categoryCell
         cell.setAlert(crypto: display[indexPath.row])
         
         return cell
