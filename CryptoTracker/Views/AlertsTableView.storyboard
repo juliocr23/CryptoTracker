@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="VfN-60-oR0">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -25,28 +25,33 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tcs-5d-nPg">
-                                            <rect key="frame" x="312" y="19" width="49" height="31"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <connections>
-                                                <action selector="switchEvent:" destination="vuF-de-qHt" eventType="valueChanged" id="d1l-mr-ARV"/>
-                                            </connections>
-                                        </switch>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="📉" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fmc-0d-7PY">
-                                            <rect key="frame" x="8" y="14" width="38" height="40"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="📉" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fmc-0d-7PY">
+                                            <rect key="frame" x="8" y="14" width="38" height="41"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="34"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="BTC is below $3,246" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GRe-xq-sPL">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BTC is below $3,246" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GRe-xq-sPL">
                                             <rect key="frame" x="54" y="24" width="159" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tcs-5d-nPg">
+                                            <rect key="frame" x="310" y="19" width="51" height="31"/>
+                                            <connections>
+                                                <action selector="switchEvent:" destination="vuF-de-qHt" eventType="valueChanged" id="d1l-mr-ARV"/>
+                                            </connections>
+                                        </switch>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="GRe-xq-sPL" firstAttribute="leading" secondItem="fmc-0d-7PY" secondAttribute="trailing" constant="8" id="IZb-Bj-ZFV"/>
+                                        <constraint firstItem="GRe-xq-sPL" firstAttribute="top" secondItem="inB-da-Qef" secondAttribute="topMargin" constant="13" id="N57-8i-4oN"/>
+                                        <constraint firstItem="tcs-5d-nPg" firstAttribute="top" secondItem="inB-da-Qef" secondAttribute="topMargin" constant="8" id="QRf-jX-L9w"/>
+                                        <constraint firstItem="tcs-5d-nPg" firstAttribute="trailing" secondItem="inB-da-Qef" secondAttribute="trailingMargin" id="bdY-ku-BuP"/>
+                                        <constraint firstItem="fmc-0d-7PY" firstAttribute="leading" secondItem="inB-da-Qef" secondAttribute="leading" constant="8" id="pmO-Pb-djj"/>
+                                        <constraint firstItem="fmc-0d-7PY" firstAttribute="top" secondItem="inB-da-Qef" secondAttribute="top" constant="14" id="trN-eS-93J"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="alertMessage" destination="GRe-xq-sPL" id="IKm-HX-ryZ"/>

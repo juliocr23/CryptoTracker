@@ -20,8 +20,9 @@ import UIKit
  */
 class CategoryController: UITableViewController,AlertProtocol,PopupProtocol {
     
-    //var crypto: Cryptocurrency?
+    
     var display: [Cryptocurrency]!
+    var segueToAssets = "goToAssets"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,11 +72,11 @@ class CategoryController: UITableViewController,AlertProtocol,PopupProtocol {
     }
    
     @IBAction func AddAlert(_ sender: Any) {
-        performSegue(withIdentifier: "goFromAlertToSearch", sender: self)
+        performSegue(withIdentifier:segueToAssets, sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "goFromAlertToSearch" {
+        if segue.identifier == segueToAssets {
             let destinationVC = segue.destination as! SearchController
             destinationVC.alertDelegate = self
         }

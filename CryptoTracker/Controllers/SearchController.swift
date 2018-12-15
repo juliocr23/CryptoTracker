@@ -25,6 +25,7 @@ class SearchController: UITableViewController, UISearchBarDelegate {
     var selectedIndex = 0
     var isAlertController = false
     var alertDelegate:AlertProtocol?
+    var graphSegue = "goToGraph"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,7 +75,7 @@ class SearchController: UITableViewController, UISearchBarDelegate {
             navigationController?.popViewController(animated: true)
             alertDelegate?.setAlert(crypto: display[selectedIndex])
         }else {
-            performSegue(withIdentifier: "goToDetails", sender: self)
+            performSegue(withIdentifier: graphSegue, sender: self)
         }
     }
     
@@ -115,7 +116,7 @@ class SearchController: UITableViewController, UISearchBarDelegate {
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if segue.identifier == "goToDetails" {
+        if segue.identifier == graphSegue {
            let destinationVC = segue.destination as! graphController
             destinationVC.crypto = display[selectedIndex]
             

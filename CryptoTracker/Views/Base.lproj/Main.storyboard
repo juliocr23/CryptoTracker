@@ -121,7 +121,7 @@
                     <navigationItem key="navigationItem" title="Assets" id="YqK-Hp-sFP"/>
                     <connections>
                         <outlet property="searchBar" destination="KKZ-dQ-VKu" id="b0e-RM-tjZ"/>
-                        <segue destination="VxJ-8M-mGs" kind="show" identifier="goToDetails" id="h26-la-84u"/>
+                        <segue destination="VxJ-8M-mGs" kind="show" identifier="goToGraph" id="h26-la-84u"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rZA-in-8P1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -241,8 +241,9 @@
                     </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <segue destination="92y-jW-LGa" kind="show" identifier="goFromAlertToSearch" id="2Wz-7E-f8m"/>
+                        <segue destination="92y-jW-LGa" kind="show" identifier="goToAssets" id="2Wz-7E-f8m"/>
                         <segue destination="4R5-ha-eY1" kind="presentation" identifier="goToPopup" id="f6E-mW-g0d"/>
+                        <segue destination="pk0-Wv-IGk" kind="show" identifier="goToAlerts" id="ZXD-iP-fg8"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n6w-IZ-EEg" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -256,6 +257,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZP-aR-2it" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-742" y="1733"/>
+        </scene>
+        <!--AlertsTableView-->
+        <scene sceneID="TJh-ZX-mUn">
+            <objects>
+                <viewControllerPlaceholder storyboardName="AlertsTableView" id="pk0-Wv-IGk" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CiO-ET-ihu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-818" y="1858"/>
         </scene>
         <!--alert-->
         <scene sceneID="Efq-qG-SFm">
