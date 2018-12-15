@@ -12,6 +12,12 @@ import SVProgressHUD
 import Alamofire
 import SwiftyJSON
 
+
+/*
+ TODO: Fix contraints in category story board
+ Also accessory type is not the color I want it
+ */
+
 protocol AlertProtocol {
     func setAlert(crypto: Cryptocurrency);
 }
