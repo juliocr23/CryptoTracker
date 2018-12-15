@@ -163,6 +163,7 @@ class graphController: UIViewController {
     //----------------------------------------------------------\\
     @IBAction func show1Hr(_ sender: UIButton) {
         
+        print("One hour graph")
         if graphButtons[graphIndex] != sender  {
            
              SVProgressHUD.show()
@@ -177,7 +178,7 @@ class graphController: UIViewController {
     
     @IBAction func show1Day(_ sender: UIButton) {
         
-        print("In one day")
+        print("one day graph")
         if graphButtons[graphIndex] != sender  {
             
             SVProgressHUD.show()
@@ -190,6 +191,8 @@ class graphController: UIViewController {
     
     
     @IBAction func show1Week(_ sender: UIButton) {
+        
+        print("one Week graph")
         if graphButtons[graphIndex] != sender  {
             
             SVProgressHUD.show()
@@ -202,6 +205,8 @@ class graphController: UIViewController {
     
     
     @IBAction func show1Month(_ sender: UIButton) {
+        
+        print("one month graph")
         if graphButtons[graphIndex] != sender  {
             
             SVProgressHUD.show()
@@ -213,6 +218,8 @@ class graphController: UIViewController {
     }
     
     @IBAction func show1Year(_ sender: UIButton) {
+        
+        print("one year graph")
         if graphButtons[graphIndex] != sender  {
             
             SVProgressHUD.show()
@@ -224,6 +231,8 @@ class graphController: UIViewController {
     }
     
     @IBAction func showAll(_ sender: UIButton) {
+        
+        print("All time graph")
         if graphButtons[graphIndex] != sender  {
             
             SVProgressHUD.show()

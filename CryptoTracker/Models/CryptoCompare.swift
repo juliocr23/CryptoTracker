@@ -139,12 +139,12 @@ class CryptoCompare {
         
         let price = Price()
         price.price        = raw["PRICE"].doubleValue.rounded(places: 2)
-        price.supply       = raw["SUPPLY"].doubleValue
-        price.highDay      = raw["HIGHDAY"].doubleValue
-        price.lowDay       = raw["LOWDAY"].doubleValue
-        price.volume24H    = raw["TOTALVOLUME24HTO"].doubleValue
-        price.marketCap    = raw["MKTCAP"].doubleValue
-        price.change24H    = raw["CHANGEPCT24HOUR"].doubleValue
+        price.supply       = raw["SUPPLY"].doubleValue.rounded(places: 2)
+        price.highDay      = raw["HIGHDAY"].doubleValue.rounded(places: 2)
+        price.lowDay       = raw["LOWDAY"].doubleValue.rounded(places: 2)
+        price.volume24H    = raw["TOTALVOLUME24HTO"].doubleValue.rounded(places: 2)
+        price.marketCap    = raw["MKTCAP"].doubleValue.rounded(places: 2)
+        price.change24H    = raw["CHANGEPCT24HOUR"].doubleValue.rounded(places: 2)
         
         return price
     }
