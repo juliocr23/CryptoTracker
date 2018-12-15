@@ -33,6 +33,11 @@ class DBMS  {
         print("Alerts deleted")
     }
     
+    static func delete(alert: PriceAlert) {
+        context.delete(alert)
+        saveData()
+    }
+    
     static func getAlerts(for symbol:String)->[PriceAlert]? {
         let request: NSFetchRequest<PriceAlert> = PriceAlert.fetchRequest()
         request.predicate = NSPredicate(format: "symbol == %@", symbol)
