@@ -42,12 +42,17 @@ class AlertController: UITableViewController {
         
         if editingStyle == .delete {
             
-            DBMS.delete(alert: crypto!.alerts[indexPath.row])
+            DBMS.delete(alerts: [crypto!.alerts[indexPath.row]])
             crypto?.alerts.remove(at: indexPath.row)
           
             tableView.beginUpdates()
             tableView.deleteRows(at: [indexPath], with: .automatic)
             tableView.endUpdates()
+            
+            print("Size is \(crypto?.alerts.count)")
+            if crypto?.alerts.count == 0 {
+                navigationController?.popViewController(animated: true)
+            }
         }
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -56,5 +61,4 @@ class AlertController: UITableViewController {
         cell.setAlert(alert: crypto!.alerts[indexPath.row])
         return cell
     }
-  
 }

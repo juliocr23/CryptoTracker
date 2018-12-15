@@ -45,6 +45,24 @@ class CategoryController: UITableViewController,AlertProtocol,PopupProtocol {
          display.sort(by:{$0.icon.symbol < $1.icon.symbol})
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        updateData()
+        self.tableView.reloadData()
+    }
+    
+    func updateData(){
+        
+        var i = 0
+        while i < display.count {
+            if display[i].alerts.count == 0 {
+                display.remove(at: i)
+            }
+            i += 1
+        }
+    }
+    
     //MARK: Protocol methods
     func setAlert(crypto: Cryptocurrency) {
         
@@ -65,6 +83,23 @@ class CategoryController: UITableViewController,AlertProtocol,PopupProtocol {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
       return display.count
+    }
+    
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        if editingStyle == .delete {
+            DBMS.delete(alerts: display[indexPath.row].alerts)
+            display.remove(at: indexPath.row)
+    
+            tableView.beginUpdates()
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+            tableView.endUpdates()
+        }
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
