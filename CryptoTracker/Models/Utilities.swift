@@ -14,7 +14,7 @@ import SwiftyJSON
 func binarySearch(crypto: [Cryptocurrency], start: Int, end: Int, key: String)->Int {
     
     var left = start
-    var right = end
+    var right = end-1
     var found = -1
     
     let keyL = key.lowercased()

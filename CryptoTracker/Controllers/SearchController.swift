@@ -118,6 +118,12 @@ class SearchController: UITableViewController, UISearchBarDelegate {
         if segue.identifier == "goToDetails" {
            let destinationVC = segue.destination as! graphController
             destinationVC.crypto = display[selectedIndex]
+            
+            searchBar.text = ""
+            display = Cryptocurrency.list
+            view.endEditing(true)
+            tableView.reloadData()
+        
         }
     }
     
