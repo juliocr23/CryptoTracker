@@ -8,14 +8,26 @@
 
 import UIKit
 import CoreData
+import UserNotifications
+
+//TODO Notifications Thats the last thing you did background fetch
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDelegate {
 
     var window: UIWindow?
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.alert,.sound,.badge])
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-       
+     
+        UIApplication.shared.setMinimumBackgroundFetchInterval(UIApplication.backgroundFetchIntervalMinimum)
+        
+        PriceNotification.delegate = self
+        PriceNotification.askForPermission()
+        
         let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let  temp: UIViewController? = mainStoryboard.instantiateViewController(withIdentifier: "TabBar")
      
@@ -29,9 +41,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
       // self.saveContext()
     }
+    
+    
+    func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        //Do background work here
+        
+        //Use for updating
+        
+      /* Cryptocurrency.list.removeAll(keepingCapacity: true)
+       SearchController.loadImages()
+       CryptoCompare.downloadPrices(completion: {
+           print("Data has been completed")
+        
+        if  let VC = self.window?.rootViewController as? SearchController {
+            print("Hello bitche!")
+        }
+           completionHandler(.newData)
+        })*/
+    }
 
+    
     // MARK: - Core Data stack
-
     lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "CryptoTracker")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
@@ -55,6 +85,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
+    
+    
 
 }
 

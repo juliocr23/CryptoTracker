@@ -22,11 +22,11 @@ class CryptoCompare {
     static let multiPriceUrl = "https://min-api.cryptocompare.com/data/pricemultifull?"
     
     //Requests parameters
-    let market: String = "USD"
+    static let market: String = "USD"
     var limit: String = "60"
-    var priceThreadGroup = DispatchGroup()
+    static var priceThreadGroup = DispatchGroup()
     var imageThreadGroup = DispatchGroup()
-    var priceCalls = 0
+    static var priceCalls = 0
     var imageCalls = 0
                                         //MARK: Cryptocurrency
     //-----------------------------------------------------------------------------------------------------\\
@@ -60,7 +60,7 @@ class CryptoCompare {
 
                                                 //MARK: PRICE
     //---------------------------------------------------------------------------------------------------------\\
-    func getPriceRequest(for crypto: [Cryptocurrency], start: Int, end: Int) -> [String: String] {
+   static func getPriceRequest(for crypto: [Cryptocurrency], start: Int, end: Int) -> [String: String] {
         
         var cryptos = "";
         
@@ -73,10 +73,10 @@ class CryptoCompare {
         }
         
         return ["fsyms": cryptos,
-                "tsyms": market]
+                "tsyms": CryptoCompare.market]
     }
     
-    func downloadPrices(completion:(()->())?){
+   static func downloadPrices(completion:(()->())?){
         var i = 0
         var size = 0
         while i < Cryptocurrency.list.count-60 {
@@ -93,10 +93,10 @@ class CryptoCompare {
         priceTaskCompleted(completion: completion)
     }
     
-    private  func  processPriceDownload(begin: Int, last: Int){
+    private static  func  processPriceDownload(begin: Int, last: Int){
         
         let url = CryptoCompare.multiPriceUrl
-        let request = self.getPriceRequest(for: Cryptocurrency.list,
+        let request = getPriceRequest(for: Cryptocurrency.list,
                                            start: begin,
                                            end: last)
         
@@ -121,7 +121,7 @@ class CryptoCompare {
         }
     }
     
-    func getPrice(json: JSON, start: Int, end: Int) {
+   static func getPrice(json: JSON, start: Int, end: Int) {
         for value in json {
             
             let result = binarySearch(crypto: Cryptocurrency.list,
@@ -135,7 +135,7 @@ class CryptoCompare {
         }
     }
     
-    func parsePrice(raw: JSON) -> Price {
+ static   func parsePrice(raw: JSON) -> Price {
         
         let price = Price()
         price.price        = raw["PRICE"].doubleValue.rounded(places: 2)
@@ -153,14 +153,14 @@ class CryptoCompare {
     //-------------------------------------------------------------------------------------------------------------\\
    func requestHistory(for crypto: String) -> [String: String] {
         return ["fsym": crypto,
-                "tsym": market,
+                "tsym": CryptoCompare.market,
                 "limit": limit,
                 "extraParams": "Stock"]
     }
     
   func requestAllHistory(for crypto: String) -> [String: String] {
         return ["fsym": crypto,
-                "tsym": market,
+                "tsym": CryptoCompare.market,
                 "allData":"true",
                 "e": "CCCAGG",
                 "extraParams": "Stock"]
@@ -169,8 +169,9 @@ class CryptoCompare {
                                     //MARK: Completion
     //-------------------------------------------------------------------------\\
     
-   private func priceTaskCompleted(completion:(()->())?) {
+   private static func priceTaskCompleted(completion:(()->())?) {
     
+        priceCalls = 0
         priceThreadGroup.notify(queue: .main) {
             
             //Remove crypto where price do not exist or  price = < 1

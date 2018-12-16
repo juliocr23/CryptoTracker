@@ -43,9 +43,9 @@ class SearchController: UITableViewController, UISearchBarDelegate {
         tableView.backgroundColor = UIColor.flatBlue()
         
         if display.isEmpty {
-            loadImages()
+            SearchController.loadImages()
             SVProgressHUD.show()
-            self.cryptoComp.downloadPrices(completion: {
+           CryptoCompare.downloadPrices(completion: {
                 SVProgressHUD.dismiss()
                 self.display = Cryptocurrency.list
                 self.tableView.reloadData()
@@ -53,7 +53,7 @@ class SearchController: UITableViewController, UISearchBarDelegate {
         }
     }
     
-    func loadImages(){
+   static func loadImages(){
         do {
             let url:URL  = Bundle.main.url(forResource: "res/images", withExtension: "json")!
             let jsonData = try Data(contentsOf: url)
@@ -117,6 +117,10 @@ class SearchController: UITableViewController, UISearchBarDelegate {
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        view.endEditing(true)
     }
 
     // MARK: - Navigation

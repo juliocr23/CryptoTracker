@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1B5820AFCD0A1F3E582C6AB4 /* Pods_CryptoTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9DF80753A876CCA87882F4F /* Pods_CryptoTracker.framework */; };
+		77137FA721C6D45800E97F79 /* PriceNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77137FA621C6D45800E97F79 /* PriceNotification.swift */; };
 		772191B321B171650044A07D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772191B221B171650044A07D /* AppDelegate.swift */; };
 		772191B821B171650044A07D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 772191B621B171650044A07D /* Main.storyboard */; };
 		772191BB21B171650044A07D /* CryptoTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 772191B921B171650044A07D /* CryptoTracker.xcdatamodeld */; };
@@ -36,6 +37,7 @@
 
 /* Begin PBXFileReference section */
 		0749E05277FA5FCBF7CD2138 /* Pods-CryptoTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptoTracker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CryptoTracker/Pods-CryptoTracker.debug.xcconfig"; sourceTree = "<group>"; };
+		77137FA621C6D45800E97F79 /* PriceNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceNotification.swift; sourceTree = "<group>"; };
 		772191AF21B171650044A07D /* CryptoTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CryptoTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		772191B221B171650044A07D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		772191B721B171650044A07D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 				773AC3A921B4C24400862C99 /* HistoricalData.swift */,
 				77DBC21821BB455A00005B8A /* Icon.swift */,
 				7779806521C2F212007B4189 /* DBMS.swift */,
+				77137FA621C6D45800E97F79 /* PriceNotification.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -219,6 +222,11 @@
 				TargetAttributes = {
 					772191AE21B171650044A07D = {
 						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -321,6 +329,7 @@
 				77A6F08921B1D7B800662D3E /* SearchController.swift in Sources */,
 				77A6F08721B1D79200662D3E /* SearchCell.swift in Sources */,
 				7748161F21C49BE800E05C8E /* AlertController.swift in Sources */,
+				77137FA721C6D45800E97F79 /* PriceNotification.swift in Sources */,
 				772191CD21B187150044A07D /* Cryptocurrency.swift in Sources */,
 				7779806421C2EDAB007B4189 /* graphController.swift in Sources */,
 				773AC3AA21B4C24400862C99 /* HistoricalData.swift in Sources */,

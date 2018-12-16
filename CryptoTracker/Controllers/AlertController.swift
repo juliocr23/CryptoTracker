@@ -49,7 +49,6 @@ class AlertController: UITableViewController {
             tableView.deleteRows(at: [indexPath], with: .automatic)
             tableView.endUpdates()
             
-            print("Size is \(crypto?.alerts.count)")
             if crypto?.alerts.count == 0 {
                 navigationController?.popViewController(animated: true)
             }
