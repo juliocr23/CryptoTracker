@@ -32,6 +32,7 @@ class SearchController: UITableViewController, UISearchBarDelegate {
     var isAlertController = false
     var alertDelegate:AlertProtocol?
     var graphSegue = "goToGraph"
+    var lastUpdate: Date?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,35 +44,48 @@ class SearchController: UITableViewController, UISearchBarDelegate {
         tableView.backgroundColor = UIColor.flatBlue()
         
         if display.isEmpty {
-            SearchController.loadImages()
+            Cryptocurrency.loadImages()
             SVProgressHUD.show()
            CryptoCompare.downloadPrices(completion: {
                 SVProgressHUD.dismiss()
                 self.display = Cryptocurrency.list
                 self.tableView.reloadData()
+            
+                self.lastUpdate = Date()
+                self.updatePriceInBG()
             })
         }
     }
     
-   static func loadImages(){
-        do {
-            let url:URL  = Bundle.main.url(forResource: "res/images", withExtension: "json")!
-            let jsonData = try Data(contentsOf: url)
-            
-            let jsonDecoder = JSONDecoder()
-            let  icons      = try jsonDecoder.decode([Icon].self, from: jsonData)
-            
-            for value in icons {
-                let crypto = Cryptocurrency(icon: value)
-                Cryptocurrency.list.append(crypto)
-            }
-          
-        }catch{
-            print("Failed reading data")
-            print(error)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if !display.isEmpty {
+            display = Cryptocurrency.list
+            tableView.reloadData()
         }
     }
     
+   private func updatePriceInBG(){
+        DispatchQueue.global(qos: .background).async {
+            while true {
+                let now = Date()
+                
+                //Update price every 5 minutes
+                if  now.timeIntervalSinceNow - self.lastUpdate!.timeIntervalSinceNow > 300 {
+                    
+                    Cryptocurrency.list.removeAll(keepingCapacity: true)
+                    Cryptocurrency.loadImages()
+                    CryptoCompare.downloadPrices(completion: {
+                        if self.searchBar.text!.isEmpty {
+                            self.display = Cryptocurrency.list
+                            self.tableView.reloadData()
+                        }
+                    })
+                    self.lastUpdate = Date()
+                }
+            }
+        }
+    }
     //MARK: table methods
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedIndex =  indexPath.row
@@ -98,6 +112,7 @@ class SearchController: UITableViewController, UISearchBarDelegate {
         return cell
     }
     
+    //MARK: SearchBar methods
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
         if searchText.isEmpty {

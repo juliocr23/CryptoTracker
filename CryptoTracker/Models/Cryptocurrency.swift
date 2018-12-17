@@ -26,4 +26,23 @@ class Cryptocurrency {
         }
     }
     static var list:[Cryptocurrency] = [Cryptocurrency]()
+    
+    static func loadImages(){
+        do {
+            let url:URL  = Bundle.main.url(forResource: "res/images", withExtension: "json")!
+            let jsonData = try Data(contentsOf: url)
+            
+            let jsonDecoder = JSONDecoder()
+            let  icons      = try jsonDecoder.decode([Icon].self, from: jsonData)
+            
+            for value in icons {
+                let crypto = Cryptocurrency(icon: value)
+                Cryptocurrency.list.append(crypto)
+            }
+            
+        }catch{
+            print("Failed reading data")
+            print(error)
+        }
+    }
 }

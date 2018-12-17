@@ -42,24 +42,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
       // self.saveContext()
     }
     
-    
+    //MARK: Fetch background
     func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-        //Do background work here
-        
-        //Use for updating
-        
-      /* Cryptocurrency.list.removeAll(keepingCapacity: true)
-       SearchController.loadImages()
-       CryptoCompare.downloadPrices(completion: {
-           print("Data has been completed")
-        
-        if  let VC = self.window?.rootViewController as? SearchController {
-            print("Hello bitche!")
-        }
-           completionHandler(.newData)
-        })*/
+        updatePrice(completionHandler: completionHandler)
     }
-
+    
+    func updatePrice(completionHandler: @escaping (UIBackgroundFetchResult) -> Void){
+        
+        Cryptocurrency.list.removeAll(keepingCapacity: true)
+        Cryptocurrency.loadImages()
+        CryptoCompare.downloadPrices(completion: {
+            completionHandler(.newData)
+        })
+    }
     
     // MARK: - Core Data stack
     lazy var persistentContainer: NSPersistentContainer = {
