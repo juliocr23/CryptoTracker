@@ -60,6 +60,7 @@ class SearchController: UITableViewController, UISearchBarDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if !display.isEmpty {
+            print("View appear")
             display = Cryptocurrency.list
             tableView.reloadData()
         }
