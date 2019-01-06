@@ -24,7 +24,11 @@ Below are some of the screenshots of the app:
    
    <h3> Yearly Graph </h3>
    <img src="https://github.com/juliocr23/CryptoTracker/blob/master/app6.PNG" width="350" title="hover text">
+   
+   <h3>List of alerts that have been set for different cryptocurrencies </h3>
    <img src="https://github.com/juliocr23/CryptoTracker/blob/master/app7.PNG" width="350" title="hover text">
+   
+   <h3> Alerts for specific cryptos </h3>
    <img src="https://github.com/juliocr23/CryptoTracker/blob/master/app8.PNG" width="350" title="hover text">
    <img src="https://github.com/juliocr23/CryptoTracker/blob/master/app9.PNG" width="350" title="hover text">
    <img src="https://github.com/juliocr23/CryptoTracker/blob/master/app10.PNG" width="350" title="hover text">
