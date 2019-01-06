@@ -7,4 +7,14 @@ with the help of APIs such as Charts, SwiftyJSON, Alamofire, SVProgressHUD, Cham
 Below are some of the screen shots of the app:
 <p align="center">
   <img src="https://github.com/juliocr23/CryptoTracker/blob/master/app1.PNG" width="350" title="hover text">
+   <img src="https://github.com/juliocr23/CryptoTracker/blob/master/app2.PNG" width="350" title="hover text">
+   <img src="https://github.com/juliocr23/CryptoTracker/blob/master/app3.PNG" width="350" title="hover text">
+   <img src="https://github.com/juliocr23/CryptoTracker/blob/master/app4.PNG" width="350" title="hover text">
+   <img src="https://github.com/juliocr23/CryptoTracker/blob/master/app5.PNG" width="350" title="hover text">
+   <img src="https://github.com/juliocr23/CryptoTracker/blob/master/app6.PNG" width="350" title="hover text">
+   <img src="https://github.com/juliocr23/CryptoTracker/blob/master/app7.PNG" width="350" title="hover text">
+   <img src="https://github.com/juliocr23/CryptoTracker/blob/master/app8.PNG" width="350" title="hover text">
+   <img src="https://github.com/juliocr23/CryptoTracker/blob/master/app9.PNG" width="350" title="hover text">
+   <img src="https://github.com/juliocr23/CryptoTracker/blob/master/app10.PNG" width="350" title="hover text">
+   <img src="https://github.com/juliocr23/CryptoTracker/blob/master/app11.PNG" width="350" title="hover text">
 </p>
