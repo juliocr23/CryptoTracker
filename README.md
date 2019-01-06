@@ -7,9 +7,12 @@ with the help of APIs such as Charts, SwiftyJSON, Alamofire, SVProgressHUD, Cham
 Below are some of the screenshots of the app:
 <p align="center">
   
+  <h3>List of available cryptocurrencies with real time price </h3>
+  <img src="https://github.com/juliocr23/CryptoTracker/blob/master/app2.PNG" width="350" title="hover text">
+  
   <h3> Hourly Graph </h3>
   <img src="https://github.com/juliocr23/CryptoTracker/blob/master/app1.PNG" width="350" title="hover text">
-   <img src="https://github.com/juliocr23/CryptoTracker/blob/master/app2.PNG" width="350" title="hover text">
+  
    <img src="https://github.com/juliocr23/CryptoTracker/blob/master/app3.PNG" width="350" title="hover text">
    <img src="https://github.com/juliocr23/CryptoTracker/blob/master/app4.PNG" width="350" title="hover text">
    <img src="https://github.com/juliocr23/CryptoTracker/blob/master/app5.PNG" width="350" title="hover text">
