@@ -6,5 +6,5 @@ with the help of APIs such as Charts, SwiftyJSON, Alamofire, SVProgressHUD, Cham
 
 Below are some of the screen shots of the app:
 <p align="center">
-  <img src="https://github.com/juliocr23/CryptoTracker/app1.png" width="350" title="hover text">
+  <img src="https://github.com/juliocr23/CryptoTracker/blob/master/app1.PNG" width="350" title="hover text">
 </p>
