@@ -5,5 +5,6 @@ graphs, price, volume, Market Cap, supply and alerts. This was accomplished usin
 with the help of APIs such as Charts, SwiftyJSON, Alamofire, SVProgressHUD, Chameleon and Core data.
 
 Below are some of the screen shots of the app:
-
-![Screenshot](app1.png)
+<p align="center">
+  <img src="app1.png" width="350" title="hover text">
+</p>
