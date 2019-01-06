@@ -30,7 +30,13 @@ Below are some of the screenshots of the app:
    
    <h3> Alerts for specific cryptos </h3>
    <img src="https://github.com/juliocr23/CryptoTracker/blob/master/app8.PNG" width="350" title="hover text">
+   
+   <h3> Adding new Alert above crypto's price </h3>
    <img src="https://github.com/juliocr23/CryptoTracker/blob/master/app9.PNG" width="350" title="hover text">
+   
+   <h3> Adding new Alert below crypto's price </h3>
    <img src="https://github.com/juliocr23/CryptoTracker/blob/master/app10.PNG" width="350" title="hover text">
+   
+   <h3> Adding new Alert at crypto's price </h3>
    <img src="https://github.com/juliocr23/CryptoTracker/blob/master/app11.PNG" width="350" title="hover text">
 </p>
