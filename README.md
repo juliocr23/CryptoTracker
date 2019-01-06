@@ -13,9 +13,16 @@ Below are some of the screenshots of the app:
   <h3> Hourly Graph </h3>
   <img src="https://github.com/juliocr23/CryptoTracker/blob/master/app1.PNG" width="350" title="hover text">
   
+   <h3> Daily Graph </h3>
    <img src="https://github.com/juliocr23/CryptoTracker/blob/master/app3.PNG" width="350" title="hover text">
+   
+   <h3> Weekly Graph </h3>
    <img src="https://github.com/juliocr23/CryptoTracker/blob/master/app4.PNG" width="350" title="hover text">
+   
+   <h3> Monthly Graph </h3>
    <img src="https://github.com/juliocr23/CryptoTracker/blob/master/app5.PNG" width="350" title="hover text">
+   
+   <h3> Yearly Graph </h3>
    <img src="https://github.com/juliocr23/CryptoTracker/blob/master/app6.PNG" width="350" title="hover text">
    <img src="https://github.com/juliocr23/CryptoTracker/blob/master/app7.PNG" width="350" title="hover text">
    <img src="https://github.com/juliocr23/CryptoTracker/blob/master/app8.PNG" width="350" title="hover text">
