@@ -7,8 +7,7 @@ with the help of APIs such as Charts, SwiftyJSON, Alamofire, SVProgressHUD, Cham
 Below are some of the screenshots of the app:
 <p align="center">
   
-   Graph containing hourly,daily, weekly, yearly and all time.As well as real time price, including circulating supply,
-   volume, high and lows throughout the day. 
+  <h3> Hourly Graph </h3>
   <img src="https://github.com/juliocr23/CryptoTracker/blob/master/app1.PNG" width="350" title="hover text">
    <img src="https://github.com/juliocr23/CryptoTracker/blob/master/app2.PNG" width="350" title="hover text">
    <img src="https://github.com/juliocr23/CryptoTracker/blob/master/app3.PNG" width="350" title="hover text">
