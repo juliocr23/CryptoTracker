@@ -10,7 +10,9 @@ import UIKit
 import CoreData
 import UserNotifications
 
-//TODO Notifications Thats the last thing you did background fetch
+/*
+  Missing notification for update in price
+ */
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDelegate {
@@ -48,7 +50,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
     //MARK: Fetch background
     func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
        updatePrice(completionHandler: completionHandler)
-       // completionHandler(.newData)
     }
     
     func updatePrice(completionHandler: @escaping (UIBackgroundFetchResult) -> Void){

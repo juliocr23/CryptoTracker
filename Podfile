@@ -17,6 +17,8 @@ pod 'SwiftyJSON'
 pod 'Charts', :git => 'https://github.com/danielgindi/Charts.git', :branch => 'master'
 pod 'ChameleonFramework'
 pod 'AlamofireImage', '~> 3.5'
+pod 'CryptoSwift', :git => "https://github.com/krzyzanowskim/CryptoSwift", :branch => "master"
+
 end
 
 post_install do |installer|
